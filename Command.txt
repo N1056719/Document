@@ -1,0 +1,11 @@
+-- Create Respository
+echo "# Document" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/N1056719/Document.git
+git push -u origin master
+
+-- Commit to Respository
+git commit -m "1125-01"
+git push -u origin master
