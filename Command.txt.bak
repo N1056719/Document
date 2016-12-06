@@ -9,6 +9,3 @@ git push -u origin master
 -- Commit to Respository
 git commit -m "1125-01"
 git push -u origin master
---
-git commit -m "161206-01"
-git push -u origin document

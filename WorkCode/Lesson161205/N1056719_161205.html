@@ -10,7 +10,8 @@
     }
     
     ul li {
-      float: left;
+      float:left;
+      position:unset;
       list-style: none;
       width: 200px;
       /* 寬200px */
@@ -29,12 +30,6 @@
     }
     
     ul:hover {
-      list-style: none;
-      width: 200px;
-      height: 32px;
-      border: 1, solid, blue;
-      color: yellow;
-      background-color: blue;
       /* 當滑鼠移到該項目時,必需將底色改成:blue */
       text-align: left;
       vertical-align: middle;
@@ -111,18 +106,8 @@
     <input id="btnAdd" type="button" value="加入" onclick="addVideo()" />
     <p>
     </p>
-    <table style="width:100%">
-      <tr>
-        <td>
-          <ul id="videoList"></ul>
-          </ul>
-        </td>
-        <td>
-          <iframe id="videoFrame"> </iframe>
-        </td>
-      </tr>
-    </table>
-
+    <ul id="videoList"></ul>
+    <iframe id="videoFrame"> </iframe>
   </form>
 </body>
 
