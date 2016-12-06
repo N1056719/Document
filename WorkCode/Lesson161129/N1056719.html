@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BTUB 2016 Picture Rotation</title>
+    <script>
+        var FileList = "" ;
+        function addBook() {
+            var ImageList = document.getElementById("ImageList");
+            var BookButton = document.getElementById("BookButton");
+            FileList = '<li><img src="' + BookButton.value + '"></li>' + FileList ;
+            ImageList.innerHTML = FileList;
+        }
+    </script>
+    <style>
+        ul li {
+            display:inline-block;
+        }
+            ul li img {
+            		display:inline-block;
+            		
+                border: 1px red solid;
+                max-width: 128px;
+                min-width: 128px;
+                object-fit:fill;
+                margin: 5px 2px 0px 2px;
+            }
+    </style>
+</head>
+<body>
+    <p>
+        書名：<input id="BookButton" type="text" width="200" value="test.jpg">
+        <button onclick="addBook()">新增</button>
+    </p>
+    <ul id="ImageList"></ul>
+</body>
+</html>

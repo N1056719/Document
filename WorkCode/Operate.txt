@@ -1,0 +1,22 @@
+npm install http-server -g
+cmd
+cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\SourceCode\SampleCode\Ch01
+cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\SourceCode\SampleCode\Ch05
+cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\SourceCode\SampleCode\Ch07
+http-server -p 80
+http://localhost/Ch01-01.html
+http://localhost/Ch01-02.html
+http://localhost/Ch03-10.html
+http://localhost/Ch04-02.html
+http://localhost/Ch05-12.html
+http://localhost/Ch08-06.html
+
+
+
+W3C Style https://www.w3.org/Style/
+http://www.w3schools.com/
+
+git clone https://github.com/scliu99/travel_web
+
+
+git checkout step1
