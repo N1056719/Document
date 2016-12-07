@@ -1,0 +1,128 @@
+﻿﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>第三題作業</title>
+  <style>
+    body {
+      background-color: white
+    }
+    
+    ul li {
+      list-style: none;
+      width: 200px;
+      /* 寬200px */
+      height: 32px;
+      /* 高32px */
+      border: 1px, solid, blue;
+      /* 框線:1px 實線, blue */
+      color: yellow;
+      /* 字色:yellow */
+      background-color: #3de;
+      /* 底色:#3de */
+      text-align: left;
+      /* 文字靠左 */
+      vertical-align: middle;
+      /* 文字要上下居中 */
+    }
+    
+    ul:hover {
+      /* 當滑鼠移到該項目時,必需將底色改成:blue */
+      text-align: left;
+      vertical-align: middle;
+    }
+    
+    iframe {
+      width: 600px;
+      height: 400px;
+      border: 0;
+    }
+  </style>
+
+  <script type="text/javascript">    
+    // 用以記錄目前的索引值
+    var arrayIndexNum = 0 ;
+    // 這個陣列用來記錄影片的 URL
+    var videoList = [];
+    /*
+      新增影片連結到 li
+    */
+    function addVideo(){
+      var txtVideoURI= document.getElementById("txtVideoURI");
+      var txtDesc= document.getElementById("txtDesc");
+      var cbAutoPlay= document.getElementById("cbAutoPlay");
+      
+      if(txtVideoURI.value == "") 
+      { // 如果沒有輪入網址就按下「加入」，必需提示使用者訊息
+        alert("請輸入網址!");
+      }
+      else if (txtDesc.value == "") 
+      { // 如果沒有輪入說明就按下「加入」，必需提示使用者訊息
+        alert("請輸入說明!");
+      }
+      else 
+      {  
+      // 輸入欄位非空白 
+        // 用輸入欄位的文字建立文字節點
+        var txtNode = document.createTextNode(txtDesc.value);
+        
+        // 建立新的 li 元素節點
+        var li = document.createElement("li");
+        // 將文字節點加入成為 li 元素的子節點
+        li.appendChild(txtNode);
+        var indexNum = arrayIndexNum.toString() ; 
+        li.addEventListener("click", function(){playVideo(indexNum)}, false);
+        // 取得 id="videoList" 的清單元素節點
+        var list = document.getElementById("videoList");
+        // 將 li 元素節點加入成為清單元素的子節點
+        list.appendChild(li);
+        
+        // 決定是否自動撥放
+        if (cbAutoPlay.checked == true)
+        {
+          // 將影片的 URL 儲存到陣列中
+          // 自動撥放
+          videoList.push(txtVideoURI.value + "?autoplay=1") ;
+        }
+        else
+        {
+          // 將影片的 URL 儲存到陣列中
+          videoList.push(txtVideoURI.value) ;
+        }
+
+        // 陣列值累加
+        arrayIndexNum ++ ;        
+      }
+    }
+    
+    /*
+      使用者點選 li 後，播放影片
+    */    
+    function playVideo(indexNum){
+        var videoFrame= document.getElementById("videoFrame");
+        videoFrame.src = videoList[parseInt(indexNum)] ;
+
+    }     
+    </script>
+</head>
+
+<body>
+  <form name="frmMain">
+    請輸入影片網址：<input id="txtVideoURI" style="width: 329px" type="text" value="https://www.youtube.com/embed/oC3XpNeVj4M" />    及說明 <input id="txtDesc" style="width: 207px" type="text" /> 自動播放<input id="cbAutoPlay" type="checkbox" />
+    <input id="btnAdd" type="button" value="加入" onclick="addVideo()" />
+    <p>
+    </p>
+    <ul id="videoList" style="float: left"></ul>
+    <table border="0">
+      <tr>
+        <td></td>
+        <td>
+          <iframe id="videoFrame" allowfullscreen> </iframe>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>
