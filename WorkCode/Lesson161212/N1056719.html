@@ -11,12 +11,11 @@
             border-color: red;
             position:relative ;
             */
-        outline: 1px solid #eee;
-        width: 400px;
-        height: 400px;
-        margin: 50px auto 0 auto;
-        position: relative;
-            
+            outline: 1px solid red;
+            width: 400px;
+            height: 400px;
+            margin: 50px auto 0 auto;
+            position: relative;
         }
         
         #box {
@@ -29,8 +28,7 @@
             margin-bottom: 1px;
             margin-left: 1px;
             margin-right: 1px;
-            position:relative;
-
+            position: relative;
             /*
               從左上角開始，left 遞減，高度固定，寬度遞增
             */
@@ -40,11 +38,12 @@
             width: 100px ;
             height: 200px ;
             */
+            /*
             top: 1;
-            left: 1 ;
-            width: 96% ;
-            height: 50% ;
-            
+            left: 1;
+            width: 96%;
+            height: 50%;
+            */
             /*
               從右上角開始，寬度固定，高度逐漸增加
             */
@@ -54,16 +53,14 @@
             width: 185px ;
             height: 100px ;
             */
-
-            
             /*
               從右下角開始，left 遞減，高度固定，寬度遞增
             */
             /*
-            top: 200;
-            left: 375 ;
-            width: 10px ;
-            height: 185px ;
+            top: 46%;
+            left: 95% ;
+            width: 1% ;
+            height: 50% ;
             */
             /*
               從左下角開始，top 遞減，高度遞增，寬度固定
@@ -78,10 +75,13 @@
     </style>
 
     <script>
+    var maxHeight = 95 ;
+    var maxWidth  = 95 ;
+    var boxWidth = 1 ;
+    var boxHeight = 1 ;
+
     var containerWidth=0; 
     var containerHeight=0;
-    var boxWidth=0; 
-    var boxHeight=0;
     var milliseconds=1 ;
     // 記錄目前移動的位置
     // 1：由「右上」至「左上」
@@ -97,64 +97,124 @@
         var container = document.getElementById("container") ;
         container.style.height = parseInt(heightInput.value) ;
         container.style.width = parseInt(widthInput.value) ;
-
-        var box = document.getElementById("box") ;
-        //box.style.width = parseInt(widthInput.value/2) ;
-        //box.style.max-height = parseInt(heightInput.value-1) ;
-        //box.style.max-width =  parseInt(widthInput.value-1) ;
-        //idInterval = setInterval(moveBox, 10)
+        // 啟動
+        idInterval = setInterval(moveBox, 10)
     }
-    var boxWidth = 1 ;
     function moveBox()
     {
         var container = document.getElementById("container") ;
         var box = document.getElementById("box") ;
-        var maxWidth = parseInt(container.style.width) - 15 ;
         if (indicate == 1)
         {
-            if (parseInt(boxWidth) > maxWidth)
+            // 從左上角開始，left 遞減，高度固定，寬度遞增
+            box.style.top = "1%" ;
+            box.style.left = "1%" ;
+            box.style.height = "50%" ;
+
+            if (parseInt(boxWidth) >= maxWidth)
             {
                 // 寬度已經達到最大限度
                 // 進行位置變換
-                indicate = 2 ;
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
                 // 停止執行
-                clearInterval(idInterval);
+                //clearInterval(idInterval);
             }
             else
             {
                 boxWidth ++ ;
             }            
-            box.style.width = parseInt(boxWidth)  ;
-        }
-    }
-
-    function changePosition()
-    {
-        if (indicate == 1)
-        {
-            box.style.top = 2 ;
-            box.style.height = parseInt(heightInput.value/2) ;
-            box.style.width  =  2  ;
+            box.style.width = parseInt(boxWidth) + "%"  ;
         }
         else if (indicate == 2)
         {
-            
-            box.style.top = 2 ;
-            box.style.height = 2 
-            parseInt(heightInput.value/2) ;
-            box.style.width  =  2  ;
+            // 從右上角開始，寬度固定，高度逐漸增加
+            box.style.top = "1%" ;
+            box.style.left = "46%" ;
+            box.style.width = "50%" ;
+            if (parseInt(boxHeight) >= maxHeight)
+            {
+                // 高度已經達到最大限度
+                // 進行位置變換
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                //clearInterval(idInterval);
+            }
+            else
+            {
+                boxHeight ++ ;
+            }            
+            box.style.height = parseInt(boxHeight) + "%"  ;
         }
-
+        else if (indicate == 3)
+        {
+            var left = maxWidth - parseInt(boxWidth) ;
+            if (left <= 1)
+                left = 1 ;
+            // 從右下角開始，left 遞減，高度固定，寬度遞增
+            box.style.top = "46%" ;
+            box.style.height = "50%" ;
+            if (parseInt(boxWidth) >= maxWidth)
+            {
+                // 寬度已經達到最大限度
+                // 進行位置變換
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                //clearInterval(idInterval);
+            }
+            else
+            {
+                boxWidth ++ ;
+            }            
+            box.style.left = parseInt(left) + "%"  ;
+            box.style.width = parseInt(boxWidth) + "%"  ;
+        }
+        else if (indicate == 4)
+        {
+            // 從左下角開始，top 遞減，高度遞增，寬度固定
+            var top = maxHeight - parseInt(boxHeight) ;
+            if (top <= 1)
+                top = 1 ;
+            box.style.left = "1%" ;
+            box.style.width = "50%" ;
+            if (parseInt(boxHeight) >= maxHeight)
+            {
+                // 高度已經達到最大限度
+                // 進行位置變換
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                //clearInterval(idInterval);
+            }
+            else
+            {
+                boxHeight ++ ;
+            }            
+            box.style.top = parseInt(top) + "%"  ;
+            box.style.height = parseInt(boxHeight) + "%"  ;
+        }
+        else if (indicate > 4)
+        {
+            // 回歸初始
+            indicate = 1 ;
+        }        
     }
   </script>
 </head>
 
-<body onload="start()">
+<body>
     <div id="input-div">
         高度:<input id="height-input" type="text" value="400" onkeyup="start()"> 寬度:
         <input id="width-input" type="text" value="400" onkeyup="start()"> delay:
         <input id="delay-input" type="text" value="10" onkeyup="start()"> step:
         <input id="step-input" type="text" value="1" onkeyup="start()">
+        <input id="btn" type="button" value="1" onclick="start()">
     </div>
     <div id="container">
         <div id="box">
