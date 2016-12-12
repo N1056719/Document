@@ -1,0 +1,178 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html>
+<!--提交人員：N1056705 李政吉-->
+<!--
+本次修訂內容
+1：ifrem改用html置入_刪除邊匡
+2：邊框重疊問題，改用CSS解
+3：起啓變數宣靠onload問題搬移，刪除innerHTML改用txtNode
+4：下次更新目標，最後一題
+5：版本20161207.1
+-->
+<head>
+    <meta charset="utf-8">
+    <title>Ch09-09</title>
+    <script>
+	//起啓設定_測試用變數
+	var runNumber = 0
+	
+	//加入按鈕執行的主程式
+	function addvideo()
+	{
+		//抓網址
+		var video= document.getElementById("videoLink");
+
+		//抓自動播放打勾的值
+		var videoAuto =  document.getElementById("videoAuto");
+
+		//檢查空值跳警示與不提交
+		if(video.value=="") {alert("請輸入網址！");return false;}
+
+		listOut() //呼叫_輸出說明副程式_txtNode
+		
+		iframe() //呼叫_輸出影片副程式
+	}
+
+	/*以下_副程式區*/
+
+	function listClick() //list清單按鈕
+	{
+	
+	
+	iframe()//呼叫_輸出影片副程式
+	}
+
+
+	function listOut() //不使用innerHTML，改testNode
+	{
+
+	// 用輸入欄位的文字建立文字節點
+	var txtNode = document.createTextNode(videoDescription.value);
+
+	// 建立新的元素節點
+	var li = document.createElement("li");
+	var ul = document.createElement("ul");
+	var list = document.getElementById("list");
+
+	// 將文字節點加入成為 li 元素的子節點
+   	li.appendChild(txtNode);
+	
+	//把li節點加入id屬性
+	li.setAttribute("id","listLink");
+	
+	//把li節點加入onlick屬性
+	li.setAttribute("onclick","listClick()")
+
+	// 將li點加入成為 ul 元素的子節點
+	ul.appendChild(li);
+	
+	// 將ul點加入成為 list 元素的子節點
+	list.appendChild(ul);
+      
+	//將目前清單子元素的總數顯示在網頁上
+	document.getElementById("vidoeCount").innerText = 
+	list.children.length;
+
+	}
+
+	/*輸出影片_副程式*/
+	function iframe()
+	{
+		/*自動播放功能_先取原值到變數_避勉取消勾選時也有帶自動播放參數*/
+		var videoSource = document.getElementById("videoLink").value; 
+		if(videoAuto.checked)
+		{
+		videoSource +="?autoplay=1";
+		} 
+		document.getElementById("iframe").src = videoSource;
+	}
+
+
+
+
+	/*自動連結變動_測試用_副程式*/
+	function addvideoChange()
+	{
+	var videoDescription= document.getElementById("videoDescription");
+	var video= document.getElementById("video");
+	if (runNumber >= 5) {runNumber = 1} else {runNumber = runNumber + 1}
+	switch(runNumber)
+		{
+		case 1: videoDescription.value ="周子瑜";
+			videoLink.value = "https://www.youtube.com/embed/oC3XpNeVj4M"
+			break;
+		case 2: videoDescription.value = "PPAP";
+			videoLink.value = "https://www.youtube.com/embed/kN5cqf63kb8"
+			break;
+		case 3: videoDescription.value = "左左右右";
+			videoLink.value = "https://www.youtube.com/embed/T3IlUKlThdY"
+			break;
+		case 4: videoDescription.value = "小蘋果";
+			videoLink.value = "https://www.youtube.com/embed/EDNF13jPfjs"
+			break;
+		case 5: videoDescription.value = "伍佰";
+			videoLink.value = "https://www.youtube.com/embed/mI7awWX_pas"
+			break;
+		}
+	}
+
+    </script>
+    <style>
+	#listLink
+	{
+	width:200px;
+	height:32px;
+	background-color: #3de;
+	border:blue 1px solid; 
+	/*margin-1解重疊框線問題*/
+	margin-top:-1px;
+	color:yellow;
+	line-height:32px;
+	}
+
+	#list
+	{
+	}
+	
+	#list ul
+	{
+	margin: 0 0 0 0;
+	list-style-type:none;
+	}
+	
+	#list ul li:hover
+	{
+	background-color:blue;
+	}
+
+	#iframe
+	{
+	position: absolute;
+	top: 90px;
+	left:260px;
+	width:600px;
+	height:400px;
+	}
+	
+
+    </style>
+</head>
+<body>
+  
+  請輸入影片網址：<input id="videoLink" type="text" placeholder="請填寫網址">
+
+  及說明：<input id="videoDescription" type="text" placeholder="請填寫說明">
+
+  自動播放：<input id="videoAuto" type="checkbox" name="check">
+  <button onclick="addvideo()">加入</button>
+  <button onclick="addvideoChange()">自動連結變動_測試用</button>
+  <p>第三次作業：提交人員：N1056705 李政吉<br>請用chrome　現在有 <span id="vidoeCount">0</span>影片<br></p>
+
+
+<div id="list">
+</div>
+
+<iframe id="iframe" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<html>
+
+<head>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #input-div {
+        margin: auto;
+        width: 691px;
+    }
+    
+    #container {
+        outline: 1px solid #eee;
+        width: 400px;
+        height: 400px;
+        margin: 50px auto 0 auto;
+        position: relative;
+    }
+    
+    #box {
+        width: 100%;
+        height: 50%;
+        background-color: #ddd;
+        outline: 1px solid #eee;
+        position: absolute;
+    }
+    
+    .the_upper_left {
+        top: 0;
+        left: 0;
+    }
+    
+    .the_upper_right {
+        top: 0;
+        right: 0;
+    }
+    
+    .the_lower_left {
+        bottom: 0;
+        left: 0;
+    }
+    
+    .the_lower_right {
+        bottom: 0;
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="input-div">
+        高度:
+        <input id="width-input" type="text" value="400"> 寬度:
+        <input id="height-input" type="text" value="400"> delay:
+        <input id="delay-input" type="text" value="10"> step:
+        <input id="step-input" type="text" value="1">
+    </div>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+    <script>
+    // -- 宣告區 -- //
+    var boxElem = document.getElementById("box");
+    var container = document.getElementById("container");
+    var widthInput = document.getElementById("width-input");
+    var heightInput = document.getElementById("height-input");
+    var delayInput = document.getElementById("delay-input");
+    var stepInput = document.getElementById("step-input");
+    var width = 0;
+    var height = 50;
+    var delay = 10;
+    var step = 1;
+
+    // -- 利用 change 來改變方塊大小 -- //
+    widthInput.addEventListener('change', function() {
+        container.style.width = this.value;
+        spaceWidth = Number(this.value);
+    });
+    heightInput.addEventListener('change', function() {
+        container.style.height = this.value;
+        spaceHeight = Number(this.value);
+    });
+
+    // --- 呼叫方塊移動 --- //
+    all(delay);
+    function all(delay) {
+        var move = setInterval(function() {
+            moveMethod('isWidthAdd', move, function() {
+                boxElem.classList.remove('the_upper_left');
+                boxElem.classList.add('the_upper_right');
+                var move1 = setInterval(function() {
+                    moveMethod('isWidthReduce', move1, function() {
+                        var move2 = setInterval(function() {
+                            moveMethod('isHeightAdd', move2, function() {
+                                boxElem.classList.remove('the_upper_right');
+                                boxElem.classList.add('the_lower_right');
+                                var move3 = setInterval(function() {
+                                    moveMethod('isHeightReduce', move3, function() {
+                                        var move4 = setInterval(function() {
+                                            moveMethod('isWidthAdd', move4, function() {
+                                                boxElem.classList.remove('the_lower_right');
+                                                boxElem.classList.add('the_lower_left');
+                                                var move5 = setInterval(function() {
+                                                    moveMethod('isWidthReduce', move5, function() {
+                                                        var move6 = setInterval(function() {
+                                                            moveMethod('isHeightAdd', move6, function() {
+                                                                boxElem.classList.remove('the_lower_left');
+                                                                boxElem.classList.add('the_upper_left');
+                                                                var move7 = setInterval(function() {
+                                                                    moveMethod('isHeightReduce', move7, function() {
+                                                                        all(delay);
+                                                                    });
+                                                                }, delay);
+                                                            });
+                                                        }, delay);
+                                                    });
+                                                }, delay);
+                                            });
+                                        }, delay);
+                                    });
+                                }, delay);
+                            });
+                        }, delay);
+                    });
+                }, delay);
+            });
+        }, delay);
+    }
+
+    // -- 方塊運動的方式 -- //
+    function moveMethod(which, cleanName, callback) {
+        if (which == 'isWidthAdd') {
+            if (width == 100) {
+                clearInterval(cleanName);
+                return callback();
+            } else {
+                width++;
+                boxElem.style.width = width + '%';
+            }
+        } else if (which == 'isWidthReduce') {
+            if (width == 50) {
+                clearInterval(cleanName);
+                width = 50;
+                return callback();
+            } else {
+                width--;
+                boxElem.style.width = width + '%';
+            }
+        } else if (which == 'isHeightAdd') {
+            if (height == 100) {
+                clearInterval(cleanName);
+                return callback();
+            } else {
+                height++;
+                boxElem.style.height = height + '%';
+            }
+        } else if (which == 'isHeightReduce') {
+            if (height == 50) {
+                clearInterval(cleanName);
+                height = 50;
+                return callback();
+            } else {
+                height--;
+                boxElem.style.height = height + '%';
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

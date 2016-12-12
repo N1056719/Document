@@ -1,0 +1,165 @@
+﻿﻿<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第三題作業</title>
+    <style>
+        #container {
+            /*
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+            position:relative ;
+            */
+        outline: 1px solid #eee;
+        width: 400px;
+        height: 400px;
+        margin: 50px auto 0 auto;
+        position: relative;
+            
+        }
+        
+        #box {
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding: 5px;
+            background-color: gray;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+            position:relative;
+
+            /*
+              從左上角開始，left 遞減，高度固定，寬度遞增
+            */
+            /*
+            top: 1;
+            left: 1 ;
+            width: 100px ;
+            height: 200px ;
+            */
+            top: 1;
+            left: 1 ;
+            width: 96% ;
+            height: 50% ;
+            
+            /*
+              從右上角開始，寬度固定，高度逐漸增加
+            */
+            /*
+            top: 1; 
+            left: 200 ;
+            width: 185px ;
+            height: 100px ;
+            */
+
+            
+            /*
+              從右下角開始，left 遞減，高度固定，寬度遞增
+            */
+            /*
+            top: 200;
+            left: 375 ;
+            width: 10px ;
+            height: 185px ;
+            */
+            /*
+              從左下角開始，top 遞減，高度遞增，寬度固定
+            */
+            /*
+            top: 285;
+            left:1 ;
+            width: 185px ;
+            height: 100px ;
+            */
+        }
+    </style>
+
+    <script>
+    var containerWidth=0; 
+    var containerHeight=0;
+    var boxWidth=0; 
+    var boxHeight=0;
+    var milliseconds=1 ;
+    // 記錄目前移動的位置
+    // 1：由「右上」至「左上」
+    // 2：由「右上」至「右下」
+    // 3：由「右下」至「左下」
+    // 4：由「左下」至「左上」
+    var indicate = 1 ;
+    var idInterval ;
+    function start()
+    {
+        var heightInput = document.getElementById("height-input") ;
+        var widthInput = document.getElementById("width-input") ;
+        var container = document.getElementById("container") ;
+        container.style.height = parseInt(heightInput.value) ;
+        container.style.width = parseInt(widthInput.value) ;
+
+        var box = document.getElementById("box") ;
+        //box.style.width = parseInt(widthInput.value/2) ;
+        //box.style.max-height = parseInt(heightInput.value-1) ;
+        //box.style.max-width =  parseInt(widthInput.value-1) ;
+        //idInterval = setInterval(moveBox, 10)
+    }
+    var boxWidth = 1 ;
+    function moveBox()
+    {
+        var container = document.getElementById("container") ;
+        var box = document.getElementById("box") ;
+        var maxWidth = parseInt(container.style.width) - 15 ;
+        if (indicate == 1)
+        {
+            if (parseInt(boxWidth) > maxWidth)
+            {
+                // 寬度已經達到最大限度
+                // 進行位置變換
+                indicate = 2 ;
+                // 停止執行
+                clearInterval(idInterval);
+            }
+            else
+            {
+                boxWidth ++ ;
+            }            
+            box.style.width = parseInt(boxWidth)  ;
+        }
+    }
+
+    function changePosition()
+    {
+        if (indicate == 1)
+        {
+            box.style.top = 2 ;
+            box.style.height = parseInt(heightInput.value/2) ;
+            box.style.width  =  2  ;
+        }
+        else if (indicate == 2)
+        {
+            
+            box.style.top = 2 ;
+            box.style.height = 2 
+            parseInt(heightInput.value/2) ;
+            box.style.width  =  2  ;
+        }
+
+    }
+  </script>
+</head>
+
+<body onload="start()">
+    <div id="input-div">
+        高度:<input id="height-input" type="text" value="400" onkeyup="start()"> 寬度:
+        <input id="width-input" type="text" value="400" onkeyup="start()"> delay:
+        <input id="delay-input" type="text" value="10" onkeyup="start()"> step:
+        <input id="step-input" type="text" value="1" onkeyup="start()">
+    </div>
+    <div id="container">
+        <div id="box">
+        </div>
+    </div>
+</body>
+
+</html>

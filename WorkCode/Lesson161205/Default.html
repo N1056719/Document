@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>未命名頁面</title>
+    <style>
+    body {
+      background-color: white
+    }
+    ul {      
+      list-style: none;
+      width: 200px;
+      /* 寬200px */
+      height: 32px;
+      /* 高32px */
+      border: 1px solid blue ;
+      /* 框線:1px 實線, blue */
+      color: yellow;
+      /* 字色:yellow */
+      background-color: #3de;
+      /* 底色:#3de */
+      text-align: left;
+      /* 文字靠左 */
+      vertical-align: middle;
+      /* 文字要上下居中 */
+    }
+    
+    ul li {
+      list-style: none;
+      width: 200px;
+      /* 寬200px */
+      height: 32px;
+      /* 高32px */
+      border: 1px solid blue ;
+      /* 框線:1px 實線, blue */
+      color: yellow;
+      /* 字色:yellow */
+      background-color: #3de;
+      /* 底色:#3de */
+      text-align: left;
+      /* 文字靠左 */
+      vertical-align: middle;
+      /* 文字要上下居中 */
+    }
+    
+    ul:hover {
+      /* 當滑鼠移到該項目時,必需將底色改成:blue */
+      text-align: left;
+      vertical-align: middle;
+    }
+    
+    iframe {
+      width: 600px;
+      height: 400px;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+    <table border="0">
+        <tr>
+            <td>
+                品號
+            </td>
+            <td>
+                <input id="pd_code" maxlength="50" value="130596" />
+            </td>
+            <td>
+                品名
+            </td>
+            <td>
+                <input id="Text1" type="text" />
+            </td>
+            <td>
+                <input id="Checkbox1" type="checkbox" checked="" />
+                加入
+            </td>
+            <td>
+                <input id="Button1" type="button" value="新增商品資料" />
+        </tr>
+        <tr>
+            <td colspan="3">
+                &nbsp;&nbsp;
+                <ul id="videoList" style=" float: left" >
+                <li>310415</li>
+                <li>310416</li>
+                <li>310417</li>
+                </ul>
+            </td>
+            <td colspan="3">
+                &nbsp;&nbsp; &nbsp;
+                <iframe id="videoFrame" src="https://www.youtube.com/embed/oC3XpNeVj4M" allowfullscreen></iframe>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

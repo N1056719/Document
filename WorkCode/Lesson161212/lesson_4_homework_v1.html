@@ -1,0 +1,152 @@
+﻿<html>
+
+<head>
+  <script>
+	/*全域變數*/
+	var j = 0  //step變動索引
+	var i = 1  //移動方向索引
+	
+
+	
+	function start(){
+
+	delay = document.getElementById("delay-input").value;    // 取得 id="delay-input"的值
+
+	setInterval(play, 500);  // 每隔 3 秒呼叫 1 次 play()
+	//alert(delay);
+
+	}
+	
+	function play(){
+	var height = document.getElementById("height-input").value;    // 取得 id="height-input"的值
+	var widtht = document.getElementById("width-input").value;    // 取得 id="width-input"的值
+	delay = document.getElementById("delay-input").value;    // 取得 id="delay-input"的值
+	step = document.getElementById("step-input").value;    // 取得 id="step-input"的值
+	
+	document.getElementById('container').style.height = height;  //改conainer寬度
+	document.getElementById('container').style.width = widtht;  //改conainer高度
+	delay = document.getElementById("delay-input").value;       //改conainer延遲
+	step = document.getElementById("step-input").value;         //改conainer步數
+	
+
+	if (j >= step) {j = 1;i++;} else {j++;}
+	//alert(i);
+	switch(i)
+	{
+	case 1:	boxTop(j)
+		break;
+	case 2:	boxRight(j)
+		break;
+	case 3:	boxDown(j)
+		break;
+	case 4:	boxLeft(j)
+		break;	
+	default:
+		i=1;
+
+	}
+
+	
+
+	}//play結束
+
+	/*副程式區*/
+ 
+
+	//sub_boxTop
+	function boxTop(iJ){
+	
+	var moveBox = (50*(iJ/step));
+	document.getElementById('box').style.left = moveBox+'%';  //改conainer
+	}
+
+	//sub_boxRight
+	function boxRight(iJ){
+	
+	var moveBox = (50*(iJ/step));
+	document.getElementById('box').style.top = moveBox+'%';  //改conainer
+	document.getElementById('box').style.left = "50+'%'";
+	}
+
+	//sub_boxDown
+	function boxDown(iJ){
+	
+	var moveBox = (50-(50*(iJ/step)));
+	
+	document.getElementById('box').style.left = (moveBox)+'%';  //改conainer
+	
+	}
+
+	//sub_boxLeft
+	function boxLeft(iJ){
+	
+	var moveBox = (50-(50*(iJ/step)));
+	document.getElementById('box').style.top = (moveBox)+'%';  //改conainer
+	document.getElementById('box').style.left = "0+'%'";
+	}
+
+	//sub_test
+	function test(){
+	document.getElementById("height-input").value = 200;    // 取得 id="height-input"的值
+	document.getElementById("width-input").value = 200;    // 取得 id="height-input"的值
+	document.getElementById("delay-input").value = 20;    // 取得 id="height-input"的值
+	document.getElementById("step-input").value = 10;    // 取得 id="height-input"的值
+	}
+
+
+  </script>
+  <style>
+    
+	#input-div
+	{
+	}
+
+	#container
+	{
+	margin-top:10px;
+	border:brown 1px solid; 
+	width:400px;
+	height:800px;
+	}
+
+
+	#box
+	{
+	border:gray 1px solid; 
+	background-color:gray;
+	
+	position: relative;
+	top: 0%;
+	left: 0%;
+	width:50%;
+	height:50%;
+	}
+
+
+
+  </style>
+</head>
+
+<body>
+
+<body onload="start()">
+
+<body>
+
+
+  <div id="input-div">
+    高度:<input id="height-input" type="text" value="400">
+    寬度:<input id="width-input" type="text" value="400">
+    delay:<input id="delay-input" type="text" value="2">
+    step:<input id="step-input" type="text" value="3">
+			<button onclick="play()">執行</button>
+			<button onclick="test()">自動變動_測試用</button>
+  </div>
+  <div id="container">
+
+    <div id="box">
+    </div>
+  </div>
+</body>
+
+</html>

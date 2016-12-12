@@ -15,7 +15,7 @@
       /* 寬200px */
       height: 32px;
       /* 高32px */
-      border: 1px, solid, blue;
+      border: 1px solid blue;
       /* 框線:1px 實線, blue */
       color: yellow;
       /* 字色:yellow */
@@ -23,20 +23,20 @@
       /* 底色:#3de */
       text-align: left;
       /* 文字靠左 */
-      vertical-align: middle;
+      line-height: 32px;
+      margin-top: -1px;
       /* 文字要上下居中 */
     }
     
-    ul:hover {
+    ul li:hover {
+      background-color: blue;
       /* 當滑鼠移到該項目時,必需將底色改成:blue */
-      text-align: left;
-      vertical-align: middle;
     }
     
     iframe {
       width: 600px;
       height: 400px;
-      border: 0;
+      border: 10px;
     }
   </style>
 
@@ -84,12 +84,19 @@
           // 將影片的 URL 儲存到陣列中
           // 自動撥放
           videoList.push(txtVideoURI.value + "?autoplay=1") ;
+          // 一加入 li 時，VideoFrame 顯示影片
+          var videoFrame= document.getElementById("videoFrame");
+          videoFrame.src = txtVideoURI.value + "?autoplay=1";
         }
         else
         {
           // 將影片的 URL 儲存到陣列中
           videoList.push(txtVideoURI.value) ;
+          // 一加入 li 時，VideoFrame 顯示影片
+          var videoFrame= document.getElementById("videoFrame");
+          videoFrame.src = txtVideoURI.value;
         }
+
 
         // 陣列值累加
         arrayIndexNum ++ ;        
@@ -109,7 +116,8 @@
 
 <body>
   <form name="frmMain">
-    請輸入影片網址：<input id="txtVideoURI" style="width: 329px" type="text" value="https://www.youtube.com/embed/oC3XpNeVj4M" />    及說明 <input id="txtDesc" style="width: 207px" type="text" /> 自動播放<input id="cbAutoPlay" type="checkbox" />
+    請輸入影片網址：<input id="txtVideoURI" style="width: 329px" type="text" /> 及說明 <input id="txtDesc" style="width: 207px" type="text"
+    /> 自動播放<input id="cbAutoPlay" type="checkbox" />
     <input id="btnAdd" type="button" value="加入" onclick="addVideo()" />
     <p>
     </p>
