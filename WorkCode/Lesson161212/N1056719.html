@@ -2,15 +2,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>第三題作業</title>
+    <title>第四題作業</title>
     <style>
         #container {
-            /*
-            border-width: 1px;
-            border-style: solid;
-            border-color: red;
-            position:relative ;
-            */
             outline: 1px solid red;
             width: 400px;
             height: 400px;
@@ -29,59 +23,16 @@
             margin-left: 1px;
             margin-right: 1px;
             position: relative;
-            /*
-              從左上角開始，left 遞減，高度固定，寬度遞增
-            */
-            /*
-            top: 1;
-            left: 1 ;
-            width: 100px ;
-            height: 200px ;
-            */
-            /*
-            top: 1;
-            left: 1;
-            width: 96%;
-            height: 50%;
-            */
-            /*
-              從右上角開始，寬度固定，高度逐漸增加
-            */
-            /*
-            top: 1; 
-            left: 200 ;
-            width: 185px ;
-            height: 100px ;
-            */
-            /*
-              從右下角開始，left 遞減，高度固定，寬度遞增
-            */
-            /*
-            top: 46%;
-            left: 95% ;
-            width: 1% ;
-            height: 50% ;
-            */
-            /*
-              從左下角開始，top 遞減，高度遞增，寬度固定
-            */
-            /*
-            top: 285;
-            left:1 ;
-            width: 185px ;
-            height: 100px ;
-            */
         }
     </style>
 
     <script>
+    // 設定條件值，最大高度與最大寬度
     var maxHeight = 95 ;
     var maxWidth  = 95 ;
+    // 記錄累計值的計數器，初始預設值
     var boxWidth = 1 ;
     var boxHeight = 1 ;
-
-    var containerWidth=0; 
-    var containerHeight=0;
     var milliseconds=1 ;
     // 記錄目前移動的位置
     // 1：由「右上」至「左上」
@@ -89,20 +40,31 @@
     // 3：由「右下」至「左下」
     // 4：由「左下」至「左上」
     var indicate = 1 ;
-    var idInterval ;
+    // 記錄 Interval 物件
+    var idInterval = 1;
+    
+    // 取得畫面條件，進行動畫設定
     function start()
     {
+        clearInterval(idInterval);
+        // 外框高度
         var heightInput = document.getElementById("height-input") ;
+        // 外框寬度
         var widthInput = document.getElementById("width-input") ;
+        // 延遲時間
+        var milliseconds=document.getElementById("delay-input")
+        // 外框物件
         var container = document.getElementById("container") ;
+        // 設定外框高度與寬度
         container.style.height = parseInt(heightInput.value) ;
         container.style.width = parseInt(widthInput.value) ;
         // 啟動
-        idInterval = setInterval(moveBox, 10)
+        idInterval = setInterval(moveBox,parseInt(milliseconds.value)) ;
     }
+
+    // 動畫效果呈現
     function moveBox()
     {
-        var container = document.getElementById("container") ;
         var box = document.getElementById("box") ;
         if (indicate == 1)
         {
@@ -114,7 +76,7 @@
             if (parseInt(boxWidth) >= maxWidth)
             {
                 // 寬度已經達到最大限度
-                // 進行位置變換
+                // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
                 indicate ++ ;
@@ -125,6 +87,7 @@
             {
                 boxWidth ++ ;
             }            
+            // 設定寬度
             box.style.width = parseInt(boxWidth) + "%"  ;
         }
         else if (indicate == 2)
@@ -136,7 +99,7 @@
             if (parseInt(boxHeight) >= maxHeight)
             {
                 // 高度已經達到最大限度
-                // 進行位置變換
+                // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
                 indicate ++ ;
@@ -146,7 +109,8 @@
             else
             {
                 boxHeight ++ ;
-            }            
+            }
+            // 設定高度            
             box.style.height = parseInt(boxHeight) + "%"  ;
         }
         else if (indicate == 3)
@@ -160,7 +124,7 @@
             if (parseInt(boxWidth) >= maxWidth)
             {
                 // 寬度已經達到最大限度
-                // 進行位置變換
+                // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
                 indicate ++ ;
@@ -170,7 +134,9 @@
             else
             {
                 boxWidth ++ ;
-            }            
+            }
+            // 設定畫面左邊位置
+            // 設定寬度            
             box.style.left = parseInt(left) + "%"  ;
             box.style.width = parseInt(boxWidth) + "%"  ;
         }
@@ -185,7 +151,7 @@
             if (parseInt(boxHeight) >= maxHeight)
             {
                 // 高度已經達到最大限度
-                // 進行位置變換
+                // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
                 indicate ++ ;
@@ -196,6 +162,8 @@
             {
                 boxHeight ++ ;
             }            
+            // 設定畫面上邊位置
+            // 設定高度            
             box.style.top = parseInt(top) + "%"  ;
             box.style.height = parseInt(boxHeight) + "%"  ;
         }
@@ -205,6 +173,11 @@
             indicate = 1 ;
         }        
     }
+    
+    function cutBox()
+    {
+    }
+
   </script>
 </head>
 
