@@ -107,9 +107,10 @@
                 // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
-                indicate ++ ;
                 // 停止執行
                 clearInterval(intervalMove);
+                // 啟動
+                intervalCut = setInterval(cutBox,delayMilliseconds) ;
             }
             else
             {
@@ -132,9 +133,10 @@
                 // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
-                indicate ++ ;
                 // 停止執行
                 clearInterval(intervalMove);
+                // 啟動
+                intervalCut = setInterval(cutBox,delayMilliseconds) ;
             }
             else
             {
@@ -159,9 +161,10 @@
                 // 進行位置變換，並預設初始值
                 boxWidth = 1 ;
                 boxHeight = 1 ;
-                indicate ++ ;
                 // 停止執行
                 clearInterval(intervalMove);
+                // 啟動
+                intervalCut = setInterval(cutBox,delayMilliseconds) ;
             }
             else
             {
@@ -204,10 +207,93 @@
             else
             {
                 boxWidth ++ ;
-                // 設定寬度
+                // 設定寬度與左邊位置
                 box.style.left = parseInt(boxWidth) + "%"  ;
                 box.style.width = parseInt(width) + "%"  ;
             }            
+        }
+        else if (indicate == 2)
+        {
+            /*
+              從右上角開始，top 遞增，高度遞減，寬度固定
+            */
+            var hight = maxHeight - parseInt(boxHeight) ;
+            if (hight <= 1)
+                hight = 1 ;
+            if (parseInt(boxHeight) >= maxHeight)
+            {
+                // 寬度已經達到最大限度
+                // 進行位置變換，並預設初始值
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                clearInterval(intervalCut);
+                // 啟動
+                intervalMove = setInterval(moveBox,delayMilliseconds) ;
+            }
+            else
+            {
+                boxHeight ++ ;
+                // 設定高度
+                box.style.top = parseInt(boxHeight) + "%"  ;
+                box.style.height = parseInt(hight) + "%"  ;
+            }          
+        
+        }
+        else if (indicate == 3)
+        {
+            /*
+              從右下角開始，left 固定，寬度遞減，高度固定
+            */
+            var width = maxWidth - parseInt(boxWidth) ;
+            if (width <= 1)
+                width = 1 ;
+            if (parseInt(boxWidth) >= maxWidth)
+            {
+                // 寬度已經達到最大限度
+                // 進行位置變換，並預設初始值
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                clearInterval(intervalCut);
+                // 啟動
+                intervalMove = setInterval(moveBox,delayMilliseconds) ;
+            }
+            else
+            {
+                boxWidth ++ ;
+                // 設定寬度
+                box.style.width = parseInt(width) + "%"  ;
+            }
+        }
+        else if (indicate == 4)
+        {
+            /*
+              從左下角開始，left 固定，寬度固定，高度遞減
+            */
+            var height = maxHeight - parseInt(boxHeight) ;
+            if (height <= 1)
+                height = 1 ;
+            if (parseInt(boxHeight) >= maxHeight)
+            {
+                // 寬度已經達到最大限度
+                // 進行位置變換，並預設初始值
+                boxWidth = 1 ;
+                boxHeight = 1 ;
+                indicate ++ ;
+                // 停止執行
+                clearInterval(intervalCut);
+                // 啟動
+                intervalMove = setInterval(moveBox,delayMilliseconds) ;
+            }
+            else
+            {
+                boxHeight ++ ;
+                // 設定高度
+                box.style.height = parseInt(height) + "%"  ;
+            }
         }
     }
 
