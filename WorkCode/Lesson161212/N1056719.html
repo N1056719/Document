@@ -25,7 +25,6 @@
             position: relative;
         }
     </style>
-
     <script>
     // 設定條件值，最大高度與最大寬度
     var maxHeight = 95 ;
@@ -44,7 +43,7 @@
     var intervalMove ;
     var intervalCut ;
     // 記錄延遲值
-    var delayMilliseconds ;
+    var delayMilliseconds = 0 ;
     
     // 取得畫面條件，進行動畫設定
     function start()
@@ -57,6 +56,7 @@
         // 延遲時間
         var milliseconds=document.getElementById("delay-input")
         delayMilliseconds = parseInt(milliseconds.value) ;
+        console.log(delayMilliseconds) ;
         // 外框物件
         var container = document.getElementById("container") ;
         // 設定外框高度與寬度
@@ -180,17 +180,17 @@
             // 回歸初始
             indicate = 1 ;
             // 取得 UI step-input，決定增加或減少
-        // 外框高度
-        var heightInput = document.getElementById("height-input") ;
-        // 外框寬度
-        var widthInput = document.getElementById("width-input") ;
-        // step-input
-        var stepInput = document.getElementById("step-input") ;
-        var height = parseInt(heightInput.value) + parseInt(stepInput.value) ;
-        var width =  parseInt(widthInput.value) + parseInt(stepInput.value) ;
-        // 設定外框高度與寬度
-        container.style.height = height  ;
-        container.style.width = width ;            
+            // 外框高度
+            var heightInput = document.getElementById("height-input") ;
+            // 外框寬度
+            var widthInput = document.getElementById("width-input") ;
+            // step-input
+            var stepInput = document.getElementById("step-input") ;
+            var height = parseInt(heightInput.value) + parseInt(stepInput.value) ;
+            var width =  parseInt(widthInput.value) + parseInt(stepInput.value) ;
+            // 設定外框高度與寬度
+            container.style.height = height  ;
+            container.style.width = width ;            
         }        
     }
     
@@ -308,16 +308,15 @@
             }
         }
     }
-
   </script>
 </head>
 
 <body>
     <div id="input-div">
-        高度:<input id="height-input" type="text" value="400" onkeyup="start()"> 寬度:
-        <input id="width-input" type="text" value="400" onkeyup="start()"> delay:
-        <input id="delay-input" type="text" value="10" onkeyup="start()"> step:
-        <input id="step-input" type="text" value="1" onkeyup="start()">
+        高度:<input id="height-input" type="text" onblur="start()" value="400"> 寬度:
+        <input id="width-input" type="text" onblur="start()" value="400"> delay:
+        <input id="delay-input" type="text" onblur="start()" value="10"> step:
+        <input id="step-input" type="text" onblur="start()" value="1">
         <input id="btn" type="button" value="1" onclick="start()">
     </div>
     <div id="container">

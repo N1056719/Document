@@ -4,8 +4,6 @@ cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\Sou
 cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\SourceCode\SampleCode\Ch05
 cd C:\Users\User\Google 雲端硬碟\Classroom\105-1網站應用程式設計\SourceCode\SampleCode\Ch07
 http-server -p 80
-http-server -p 8080
-
 http://localhost/Ch01-01.html
 http://localhost/Ch01-02.html
 http://localhost/Ch03-10.html
