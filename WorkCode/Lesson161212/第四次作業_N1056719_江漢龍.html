@@ -12,7 +12,7 @@
             position: relative;
             overflow: hidden;
         }
-               
+        
         #box {
             border-width: 1px;
             border-style: solid;
@@ -30,7 +30,6 @@
     var boxWidth = 1 ;
     var boxHeight = 1 ;
     var milliseconds=1 ;
-    var step = 1 ;
     // 記錄目前移動的位置
     // 1：由「右上」至「左上」
     // 2：由「右上」至「右下」
@@ -60,9 +59,6 @@
         // 設定外框高度與寬度
         container.style.height = parseInt(heightInput.value) ;
         container.style.width = parseInt(widthInput.value) ;
-        // 步進值
-        var stepInput = document.getElementById("step-input") ;
-        step = parseInt(stepInput.value) ;
         if (isRun == 1)
         {
             // 啟動
@@ -79,11 +75,11 @@
         if (indicate == 1)
         {
             // 從左上角開始，left 遞減，高度固定，寬度遞增
-            box.style.top = "0px" ;
-            box.style.left = "0px" ;
+            box.style.top = "1px" ;
+            box.style.left = "1px" ;
             box.style.height = maxHeight / 2 + "px";
 
-            if (parseInt(boxWidth) > maxWidth)
+            if (parseInt(boxWidth) >= maxWidth)
             {
                 // 寬度已經達到最大限度
                 // 預設初始值
@@ -96,7 +92,7 @@
             }
             else
             {
-                boxWidth = boxWidth + step ;
+                boxWidth ++ ;
             }            
             // 設定寬度
             box.style.width = parseInt(boxWidth) + "px"  ;
@@ -104,10 +100,10 @@
         else if (indicate == 2)
         {
             // 從右上角開始，寬度固定，高度逐漸增加
-            box.style.top = "0px" ;
+            box.style.top = "1" ;
             box.style.left = maxWidth / 2 + "px" ;
             box.style.width = maxWidth / 2 + "px" ;
-            if (parseInt(boxHeight) > maxHeight)
+            if (parseInt(boxHeight) >= maxHeight)
             {
                 // 高度已經達到最大限度
                 // 進行位置變換，並預設初始值
@@ -120,7 +116,7 @@
             }
             else
             {
-                boxHeight = boxHeight + step ;
+                boxHeight ++ ;
             }
             // 設定高度            
             box.style.height = parseInt(boxHeight) + "px"  ;
@@ -128,12 +124,12 @@
         else if (indicate == 3)
         {
             var left = maxWidth - parseInt(boxWidth) ;
-            if (left < 0)
-                left = 0 ;
+            if (left <= 1)
+                left = 1 ;
             // 從右下角開始，left 遞減，高度固定，寬度遞增
-            box.style.left = "0px" ;
+            box.style.left = "1px" ;
             box.style.height = maxHeight / 2 + "px";
-            if (parseInt(boxWidth) > maxWidth)
+            if (parseInt(boxWidth) >= maxWidth)
             {
                 // 寬度已經達到最大限度
                 // 進行位置變換，並預設初始值
@@ -146,7 +142,7 @@
             }
             else
             {
-                boxWidth = boxWidth + step ;
+                boxWidth ++ ;
             }
             // 設定畫面左邊位置
             // 設定寬度            
@@ -157,12 +153,12 @@
         {
             // 從左下角開始，top 遞減，高度遞增，寬度固定
             var top = maxHeight - parseInt(boxHeight) ;
-            if (top < 0)
-                top = 0 ;
-            box.style.left = "0px" ;
+            if (top <= 1)
+                top = 1 ;
+            box.style.left = "1px" ;
             box.style.width = maxWidth / 2 + "px" ;
             
-            if (parseInt(boxHeight) > maxHeight)
+            if (parseInt(boxHeight) >= maxHeight)
             {
                 // 高度已經達到最大限度
                 // 進行位置變換，並預設初始值
@@ -175,7 +171,7 @@
             }
             else
             {
-                boxHeight = boxHeight + step ;
+                boxHeight ++ ;
             }            
             // 設定畫面上邊位置
             // 設定高度            
@@ -192,10 +188,9 @@
             // 外框寬度
             var widthInput = document.getElementById("width-input") ;
             // step-input
-            // var stepInput = document.getElementById("step-input") ;
-            // step = parseInt(stepInput.value) ;
-            //var height = parseInt(heightInput.value) + parseInt(stepInput.value) ;
-            //var width =  parseInt(widthInput.value) + parseInt(stepInput.value) ;
+            var stepInput = document.getElementById("step-input") ;
+            var height = parseInt(heightInput.value) + parseInt(stepInput.value) ;
+            var width =  parseInt(widthInput.value) + parseInt(stepInput.value) ;
             // 設定外框高度與寬度
             container.style.height = height  ;
             container.style.width = width ;            
@@ -226,7 +221,7 @@
             }
             else
             {
-                boxWidth = boxWidth + step ;
+                boxWidth ++ ;
                 // 設定寬度與左邊位置
                 box.style.left = parseInt(boxWidth) + "px"  ;
                 box.style.width = parseInt(width) + "px"  ;
@@ -254,7 +249,7 @@
             }
             else
             {
-                boxHeight = boxHeight + step ;
+                boxHeight ++ ;
                 // 設定高度
                 box.style.top = parseInt(boxHeight) + "px"  ;
                 box.style.height = parseInt(hight) + "px"  ;
@@ -283,7 +278,7 @@
             }
             else
             {
-                boxWidth = boxWidth + step ;
+                boxWidth ++ ;
                 // 設定寬度
                 box.style.width = parseInt(width) + "px"  ;
             }
@@ -310,7 +305,7 @@
             }
             else
             {
-                boxHeight = boxHeight + step ;
+                boxHeight ++ ;
                 // 設定高度
                 box.style.height = parseInt(height) + "px"  ;
             }
