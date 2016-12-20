@@ -14,13 +14,6 @@
                 'text-indent': '-9999px',
                 'color': 'whilte'
             };
-        var hasErrorMessageStyle =
-            {
-                'float': 'none',
-                'width': '0px',
-                'text-indent': '-9999px',
-                'color': 'red'
-            };
         function formLoad() {
             // 將錯誤訊息清除
             $('.error-message.error-show-message').css(noErrorMessageStyle);
@@ -28,44 +21,44 @@
             $('.data-div td').remove();
 
         }
-        // 記錄是否有應輸入而未輸入的控制項變數
         // 0:代表未驗證，或是驗證失敗
         // 1:代表驗證成功
         var inValid = 0;
+        // 記錄是否有應輸入而未輸入的控制項變數
         // 驗證頁面輸入
         function validInput() {
             // 驗證文字方塊必須輸入
-            console.log(event.target.nextElementSibling) ;
-            //console.log(event.target) ;
-            //console.log(event.target.id) ;
             if ($('#' + event.target.id).val() == '') {
                 // 至少有一項沒有輸入
                 // 顯示該項輸入控制項的錯誤訊息
-                //$('.error-message.error-show-message').css(hasErrorMessageStyle);
-                event.target.nextElementSibling.style = 'float:none' ;
+                event.target.nextElementSibling.style = 'float:none';
                 inValid = 0;
             }
             else {
                 // 將錯誤訊息清除
-                event.target.nextElementSibling.style = 'float:left' ;
+                event.target.nextElementSibling.style = 'float:left';
                 inValid = 1;
             }
+
+            return inValid;
         }
         // 加入按鈕處理控制項
         function summit() {
+            var conutInvalid = 0;
             // 若有未驗證的輸入控制項，則需逐項進行檢核，避免使用者未輸入而直接按下 submit button
-            if (inValid == 0) {
-                // 取出頁面上的所有文字輸入控制項
-                $('input[type=text]').each(function () {
-                    // 先進入文字控制項
-                    $(this.focus());
-                    // 離開，進行檢核
-                    $(this.blur());
-                }
-                )
+            // 取出頁面上的所有文字輸入控制項
+            $('input[type=text]').each(function () {
+                // 先進入文字控制項
+                $(this.focus());
+                // 離開，進行檢核
+                $(this.blur());
+                console.log(inValid);
+                conutInvalid = conutInvalid + parseInt(inValid);
             }
+            )
             // 判斷檢核是否通過
-            if (inValid != 0) {
+            console.log(conutInvalid);
+            if (conutInvalid == 5) {
                 // 國文成績
                 var chineseScore = parseInt($("#chinese-score").val());
                 // 數學成績
@@ -76,6 +69,7 @@
                 var totalScore = chineseScore + mathScore + englishScore;
                 // 平均
                 var averageScore = (totalScore / 3).toFixed(2);
+                //  新增一筆資料列
                 $(".data-div").append(
                     '<tr>' +
                     '<td><input type="text" class="col1" value="' + $("#student-number").val() + '" readonly /></td>' +
@@ -103,51 +97,48 @@
             font-weight: bolder;
             margin-left: 20px;
         }
-        /* 成績輸入區域 */
         
+        /* 成績輸入區域 */       
         .input-div {
             line-height: 30px;
         }
-        /* 輸入說明列 */
         
+        /* 輸入說明列 */        
         .input-group label {
             display: inline-block;
             width: 70px;
         }
-        /* 資料輸入欄 */
         
+        /* 資料輸入欄 */        
         .input-group input {
             width: 300px;
             line-height: 20px;
             margin-left: 40px;
-            /*外框線*/
             border: solid #D0D0D0 1px;
         }
-        /* 提示訊息 */
         
+        /* 提示訊息 */        
         .input-group span {
-            /*用float控制要不要移走,widhtSetTo="0",text-indent:--*/
+            float:none;
+            width:0px;
+            text-indent:-9999px;
+            color:red;
         }
-        /* 送出按鈕 */
-        
+
+        /* 送出按鈕 */       
         .submit-group input {
             font-family: 微軟正黑體;
             font-weight: bolder;
             width: 150px;
             line-height: 15px;
-            /*圓角*/
             -webkit-border-radius: 5;
             -moz-border-radius: 5;
             border-radius: 5px;
-            /*外框線*/
             border: solid #D0D0D0 1px;
-            /*框底色*/
             background-color: white
         }
-        /* 顯示學生成績的區域 */
         
-        .data-div {}
-        
+        /* 顯示學生成績的區域 */        
         .data-div table {
             /* 表格無間隙 */
             border-collapse: collapse;
