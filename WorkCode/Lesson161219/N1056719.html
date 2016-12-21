@@ -73,16 +73,16 @@
                 // 平均
                 var averageScore = (totalScore / 3).toFixed(2);
                 //  新增一筆資料列
-                $(".data-div").append(
-                    '<tr>' +
-                    '<td>  ' + $("#student-number").val() + '  </td>' +
-                    '<td>  ' + $("#student-name").val() + '  </td>' +
-                    '<td>  ' + chineseScore + '  </td>' +
-                    '<td>  ' + mathScore + '  </td>' +
-                    '<td>  ' + englishScore + '  </td>' +
-                    '<td>  ' + totalScore + '  </td>' +
-                    '<td>  ' + averageScore + '  </td>' +
-                    '</tr>');
+                var newDataRow = $('<tr></tr>')
+                    .append('<td>  ' + $("#student-number").val() + '  </td>')
+                    .append('<td>  ' + $("#student-name").val() + '  </td>')
+                    .append('<td>  ' + chineseScore + '  </td>')
+                    .append('<td>  ' + mathScore + '  </td>')
+                    .append('<td>  ' + englishScore + '  </td>')
+                    .append('<td>  ' + totalScore + '  </td>')
+                    .append('<td>  ' + averageScore + '  </td>');
+                $('table').append(newDataRow);
+
             }
 
         }

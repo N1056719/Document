@@ -5,18 +5,146 @@
     
     <title>第五次作業</title>
     
-    <!--CDN-->
+    <!--導入Jquery_CDN2.2.4.js-->
     <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
     
     <script>
         
-    function start(){     
+    function start(){
+
+
+//        學號檢查
+        $("#student-number").blur(function(){
+            var $studentNumber=$('#student-number')[0].value;
+            if  ($studentNumber==""){
+                $(this).next('.error-message.error-show-message').css("float","none");
+            }else{
+                $(this).next('.error-message.error-show-message').css("float","left");
+            }
+        });
         
-        //紅字移動JQ_none_or_left_toTurnOn/Off
-//        $('.error-message.error-show-message').css("float","none");
-         
-    }
+//        姓名檢查
+        $("#student-name").blur(function(){
+            var $studentName=$('#student-name')[0].value;
+            if  ($studentName==""){
+                $(this).next('.error-message.error-show-message').css("float","none");
+            }else{
+                $(this).next('.error-message.error-show-message').css("float","left");
+            }
+        });
         
+//        國文分數檢查
+        $("#chinese-score").blur(function(){
+            var $chineseScore=$('#chinese-score')[0].value;
+            if  ($chineseScore==""){
+                $(this).next('.error-message.error-show-message').css("float","none");
+            }else{
+                    //如果不是空值
+                    var intCheck = $(this).val()
+                    if(!isNaN(intCheck)){
+                        //全數字一樣隱藏
+                        $(this).next('.error-message.error-show-message').css("float","left");
+                    }else{
+                        //不是數字一樣顯示
+                        $(this).next('.error-message.error-show-message').css("float","none");
+                    }
+            }
+        });
+
+//        數學分數檢查
+        $("#math-score").blur(function(){
+            var $mathScore=$('#math-score')[0].value;
+            if  ($mathScore==""){
+                $(this).next('.error-message.error-show-message').css("float","none");
+            }else{
+                    //如果不是空值
+                    var intCheck = $(this).val()
+                    if(!isNaN(intCheck)){
+                        //全數字一樣隱藏
+                        $(this).next('.error-message.error-show-message').css("float","left");
+                    }else{
+                        //不是數字一樣顯示
+                        $(this).next('.error-message.error-show-message').css("float","none");
+                    }
+            }
+        });
+        
+
+//        英文分數檢查
+        $("#english-score").change(function(){
+            var $englishScore=$('#english-score')[0].value;
+            if  ($englishScore==""){
+                $(this).next('.error-message.error-show-message').css("float","none");
+            }else{
+                    //如果不是空值
+                    var intCheck = $(this).val()
+                    if(!isNaN(intCheck)){
+                        //全數字一樣隱藏
+                        $(this).next('.error-message.error-show-message').css("float","left");
+                    }else{
+                        //不是數字一樣顯示
+                        $(this).next('.error-message.error-show-message').css("float","none");
+                    }
+            }
+        });
+        
+        
+        
+        
+        //清除按鈕
+        $('input[type="button"]').click(function(){
+            
+            //移除表格資料
+            $('td').remove();
+        });
+        
+                //加入按鈕
+                $('input[type="submit"]').click(function(){
+                //建立一個陣列
+                arrScore = [];
+                //陣列索引
+                i = 0;
+
+                        
+                        //新增基本分_掃文件
+                        $(document).ready(function(){
+
+                            //輸入欄資料
+                            $('input[type="text"]').each(function(){
+                                // 陣列ScoreI 帶入Jquery入屬性值
+                                arrScore[i] = $('<td></td>').text($(this).val());
+                                i++;
+                            });
+
+                            //新增總分和平均
+                            var total =0;
+                            $('[id$="score"]').each(function(){
+                            total += parseInt($(this).val()); 
+                            });
+                            //總分
+                            var tdTotal = $('<td></td>').text(total);
+                            //平均用toFixed取4/5到小數第一位
+                            var tdAverage = $('<td></td>').text((total/$('[id$="score"]').length).toFixed(1));
+
+                            // 建立 tr 元素物件, 並附加剛才建立的 td 元素
+                            var row = $('<tr></tr>')
+                                    .append(arrScore[0])
+                                    .append(arrScore[1])
+                                    .append(arrScore[2])
+                                    .append(arrScore[3])
+                                    .append(arrScore[4])
+                                    .append(tdTotal)
+                                    .append(tdAverage);
+                             $('table').append(row);
+
+                        });  //submit function結束
+
+                    
+            return false;       //拒絕提交  
+                    
+            });    //加入按鈕結束        
+        
+    } //start結束
     </script>
 
     <style>
@@ -26,18 +154,16 @@
         font-weight:bolder;
         margin-left: 50px;
         }
-        
-        
+
         /*上半div*/
         .input-div{
             line-height: 30px;
         }
         
-            /*輸入說明列*/
+            /*輸入Desc欄_做inline排列*/
             .input-group label {
                 display: inline-block;
                 width:70px; 
-
             }
 
             /*txt欄*/
@@ -52,34 +178,33 @@
             /*要隱藏的紅字*/
             .input-group span {
                 /*用float控制要不要移走,widhtSetTo="0",text-indent:--*/
-                float:left;
+                float:none;
                 width:0px;
                 text-indent:-9999px;
                 color:red;
-                
             }
 
-            /*送出按鈕*/
+            /*送出按鈕CSS設置*/
             .submit-group input{
+                /*字型與粗體*/
                 font-family:微軟正黑體;
                 font-weight:bolder;
+                /*寬與高*/
                 width:150px;
                 line-height:15px;
-                /*圓角*/
-                -webkit-border-radius: 5;
-                -moz-border-radius: 5;
+                /*圓角設定*/
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
                 border-radius: 5px;
                 /*外框線*/
                 border: solid #D0D0D0 1px;
-                /*框底色*/
+                /*按鈕底色*/
                 background-color:white
             }
         /*上半div結束*/
         
         /*下半div*/
-        .data-div{
-            
-        }
+        .data-div{}
         
             .data-div table{
                /*表格無間隙*/
@@ -99,7 +224,7 @@
                 border:solid blue 1px;
             }
         
-             /*1n+3靠右*/
+             /*往右刷1欄從第3欄開始1n+3*/
             .data-div td:nth-child(1n+3){
                 direction:rtl; 
             }
