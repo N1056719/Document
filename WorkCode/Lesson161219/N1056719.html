@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <head>
     <title>第五次作業</title>
@@ -23,24 +24,25 @@
         }
         // 0:代表未驗證，或是驗證失敗
         // 1:代表驗證成功
-        var inValid = 0;
+        var pageValid = 0;
         // 記錄是否有應輸入而未輸入的控制項變數
         // 驗證頁面輸入
         function validInput() {
-            // 驗證文字方塊必須輸入
-            if ($('#' + event.target.id).val() == '') {
-                // 至少有一項沒有輸入
-                // 顯示該項輸入控制項的錯誤訊息
-                event.target.nextElementSibling.style = 'float:none';
-                inValid = 0;
+            pageValid = 0;
+            if (event.target.id.indexOf("col") == -1) {
+                // 驗證文字方塊必須輸入
+                if ($('#' + event.target.id).val() == '') {
+                    // 至少有一項沒有輸入
+                    // 顯示該項輸入控制項的錯誤訊息
+                    event.target.nextElementSibling.style = 'float:none';
+                    pageValid = 0;
+                }
+                else {
+                    // 將錯誤訊息清除
+                    event.target.nextElementSibling.style = 'float:left';
+                    pageValid = 1;
+                }
             }
-            else {
-                // 將錯誤訊息清除
-                event.target.nextElementSibling.style = 'float:left';
-                inValid = 1;
-            }
-
-            return inValid;
         }
         // 加入按鈕處理控制項
         function summit() {
@@ -52,12 +54,13 @@
                 $(this.focus());
                 // 離開，進行檢核
                 $(this.blur());
-                console.log(inValid);
-                conutInvalid = conutInvalid + parseInt(inValid);
+                if (parseInt(pageValid) == 1) {
+                    conutInvalid = parseInt(conutInvalid) + parseInt(pageValid);
+                    pageValid = 0;
+                }
             }
             )
             // 判斷檢核是否通過
-            console.log(conutInvalid);
             if (conutInvalid == 5) {
                 // 國文成績
                 var chineseScore = parseInt($("#chinese-score").val());
@@ -83,6 +86,8 @@
             }
 
         }
+
+        // 清除按鈕的 event delegation，清除表格的所有資料列
         function clearAllData() {
             // 清除表格內容，但要留下表頭
             $('.data-div td').remove();
@@ -160,13 +165,15 @@
         }
         .col1 {
             padding: 5px;
-            border: solid blue 0px;
+            border: solid blue 0px ;
+            border-right: 0px;                    
             width: 87px;
             text-align: center ;
         }
         .col2 {
             padding: 5px;
             border: solid blue 0px;
+            border-left: none;                    
             width: 88px;
             text-align: center ;
         }
