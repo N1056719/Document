@@ -16,8 +16,19 @@
                 'color': 'whilte'
             };
         function formLoad() {
+            // 動態為「加入」按鈕新增事件
+            $('input[type="submit"]').on('click', summit);
+            // 動態為「清除」按鈕新增事件
+            $('input[type="button"]').on('click', clearAllData);
+
+            // 取出頁面上的所有文字輸入控制項
+            $('input[type=text]').each(function () {
+                // 動態新增驗證
+                $('#' + this.id).on('blur', validInput);
+            }
+            )
             // 將錯誤訊息清除
-            $('.error-message.error-show-message').css(noErrorMessageStyle);
+            $('.error-message.error-show-message').hide();
             // 清除表格內容，但要留下表頭
             $('.data-div td').remove();
 
@@ -35,12 +46,20 @@
                     // 至少有一項沒有輸入
                     // 顯示該項輸入控制項的錯誤訊息
                     event.target.nextElementSibling.style = 'float:none';
+                    console.log(event.target.nextElementSibling.name) ;
                     pageValid = 0;
                 }
                 else {
-                    // 將錯誤訊息清除
-                    event.target.nextElementSibling.style = 'float:left';
-                    pageValid = 1;
+                    if ((event.target.id == 'chinese-score' || event.target.id == 'math-score' || event.target.id == 'english-score')
+                        && isNaN($('#' + event.target.id).val())) {
+                        event.target.nextElementSibling.style = 'float:none';
+                        pageValid = 0;
+                    }
+                    else {
+                        // 將錯誤訊息清除
+                        event.target.nextElementSibling.style = 'float:left';
+                        pageValid = 1;
+                    }
                 }
             }
         }
@@ -71,20 +90,19 @@
                 // 總分
                 var totalScore = chineseScore + mathScore + englishScore;
                 // 平均
-                var averageScore = (totalScore / 3).toFixed(2);
+                var averageScore = (totalScore / 3).toFixed(1);
                 //  新增一筆資料列
                 var newDataRow = $('<tr></tr>')
-                    .append('<td>  ' + $("#student-number").val() + '  </td>')
-                    .append('<td>  ' + $("#student-name").val() + '  </td>')
-                    .append('<td>  ' + chineseScore + '  </td>')
-                    .append('<td>  ' + mathScore + '  </td>')
-                    .append('<td>  ' + englishScore + '  </td>')
-                    .append('<td>  ' + totalScore + '  </td>')
-                    .append('<td>  ' + averageScore + '  </td>');
+                    .append('<td>  ' + $("#student-number").val() + ' </td>')
+                    .append('<td>  ' + $("#student-name").val() + ' </td>')
+                    .append('<td align="right">  ' + chineseScore + ' </td>')
+                    .append('<td align="right"> ' + mathScore + ' </td>')
+                    .append('<td align="right"> ' + englishScore + ' </td>')
+                    .append('<td align="right"> ' + totalScore + ' </td>')
+                    .append('<td align="right"> ' + averageScore + ' </td>') ;
                 $('table').append(newDataRow);
-
-            }
-
+                            }
+            event.preventDefault();
         }
 
         // 清除按鈕的 event delegation，清除表格的所有資料列
@@ -164,7 +182,6 @@
             padding: 5px;
             border: solid blue 1px;
             width: 110px;
-            text-align: center ;
         }
     </style>
 </head>
@@ -176,75 +193,75 @@
             <div class="input-group">
                 <label for="student-number">
                         學號:</label>
-                <input id="student-number" type="text" onblur="validInput()">
-<span class="error-message error-show-message">請輸入學號</span>
-</div>
-<div class="input-group">
-    <label for="student-name">
+                <input id="student-number" type="text">
+                <span class="error-message error-show-message">請輸入學號</span>
+            </div>
+            <div class="input-group">
+                <label for="student-name">
                                         姓名:</label>
-    <input id="student-name" type="text" onblur="validInput()">
-<span class="error-message error-show-message">請輸入姓名</span>
-</div>
-<div class="input-group">
-    <label for="chinese-score">
+                <input id="student-name" type="text">
+                <span class="error-message error-show-message">請輸入姓名</span>
+            </div>
+            <div class="input-group">
+                <label for="chinese-score">
                                         國文分數:</label>
-    <input id="chinese-score" type="text" onblur="validInput()">
-<span class="error-message error-show-message">請輸入國文分數</span>
-</div>
-<div class="input-group">
-    <label for="math-score">
+                <input id="chinese-score" type="text">
+                <span class="error-message error-show-message">請輸入國文分數</span>
+            </div>
+            <div class="input-group">
+                <label for="math-score">
                                         數學分數:</label>
-    <input id="math-score" type="text" onblur="validInput()">
-<span class="error-message error-show-message">請輸入數學分數</span>
-</div>
-<div class="input-group">
-    <label for="english-score">
+                <input id="math-score" type="text">
+                <span class="error-message error-show-message">請輸入數學分數</span>
+            </div>
+            <div class="input-group">
+                <label for="english-score">
                                         英文分數:</label>
-    <input id="english-score" type="text" onblur="validInput()">
-<span class="error-message error-show-message">請輸入英文分數</span>
-</div>
-<div class="submit-group">
-    <input type="submit" value="加入" onclick="summit();return false">
-<input type="button" value="清除" onclick="clearAllData()" >
-</div>
-</form>
-</div>
-<div class="data-div">
-    <table>
-        <tr>
-            <th class="col1">
-                學號</th>
-            <th class="col2">
-                姓名</th>
-            <th class="col3">
-                國文分數</th>
-            <th class="col4">
-                數學分數</th>
-            <th class="col5">
-                英文分數</th>
-            <th class="col6">
-                總分</th>
-            <th class="col7">
-                平均</th>
-        </tr>
-        <tr>
-            <td class="col1">
-                N100092</td>
-            <td class="col2">
-                王小三</td>
-            <td class="col3">
-                89</td>
-            <td class="col4">
-                77</td>
-            <td class="col5">
-                78</td>
-            <td class="col6">
-                244</td>
-            <td class="col7">
-                81.3</td>
-        </tr>
-    </table>
-</div>
+                <input id="english-score" type="text">
+                <span class="error-message error-show-message">請輸入英文分數</span>
+            </div>
+            <div class="submit-group">
+                <input type="submit" value="加入">
+                <input type="button" value="清除">
+            </div>
+        </form>
+    </div>
+    <div class="data-div">
+        <table>
+            <tr>
+                <th class="col1">
+                    學號</th>
+                <th class="col2">
+                    姓名</th>
+                <th class="col3">
+                    國文分數</th>
+                <th class="col4">
+                    數學分數</th>
+                <th class="col5">
+                    英文分數</th>
+                <th class="col6">
+                    總分</th>
+                <th class="col7">
+                    平均</th>
+            </tr>
+            <tr>
+                <td class="col1">
+                    N100092</td>
+                <td class="col2">
+                    王小三</td>
+                <td class="col3">
+                    89</td>
+                <td class="col4">
+                    77</td>
+                <td class="col5">
+                    78</td>
+                <td class="col6">
+                    244</td>
+                <td class="col7">
+                    81.3</td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 
