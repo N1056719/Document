@@ -95,11 +95,11 @@
                 var newDataRow = $('<tr></tr>')
                     .append('<td>  ' + $("#student-number").val() + ' </td>')
                     .append('<td>  ' + $("#student-name").val() + ' </td>')
-                    .append('<td align="right">  ' + chineseScore + ' </td>')
-                    .append('<td align="right"> ' + mathScore + ' </td>')
-                    .append('<td align="right"> ' + englishScore + ' </td>')
-                    .append('<td align="right"> ' + totalScore + ' </td>')
-                    .append('<td align="right"> ' + averageScore + ' </td>') ;
+                    .append('<td> ' + chineseScore + ' </td>')
+                    .append('<td> ' + mathScore + ' </td>')
+                    .append('<td> ' + englishScore + ' </td>')
+                    .append('<td> ' + totalScore + ' </td>')
+                    .append('<td> ' + averageScore + ' </td>') ;
                 $('table').append(newDataRow);
                             }
             event.preventDefault();
@@ -183,6 +183,28 @@
             border: solid blue 1px;
             width: 110px;
         }
+        td.col1 {
+            text-align: left ;
+        }
+        td.col2 {
+            text-align: left ;
+        }
+        td.col3 {
+            text-align: right ;
+        }
+        td.col4 {
+            text-align: right ;
+        }
+        td.col5 {
+            text-align: right ;
+        }
+        td.col6 {
+            text-align: right ;
+        }
+        td.col7 {
+            text-align: right ;
+        }
+        
     </style>
 </head>
 

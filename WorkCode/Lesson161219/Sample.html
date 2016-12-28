@@ -1,0 +1,131 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<head>
+    <title>第五次作業</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+    <script>    
+        function start() {
+            $('.error-message.error-show-message').hide();
+            $('.data-div td').remove();
+        }
+    </script>
+<style>
+        .container {
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+            margin-left: 20px;
+        }
+        
+        .input-div {
+            line-height: 30px;
+        }
+        
+        .input-group label {
+            display: inline-block;
+            width: 70px;
+        }
+        
+        .input-group input {
+            width: 300px;
+            line-height: 20px;
+            margin-left: 40px;
+            border: solid #D0D0D0 1px;
+        }
+        
+        .input-group span {
+            float:none;
+            width:0px;
+            text-indent:-9999px;
+            color:red;
+        }
+
+        .submit-group input {
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+            width: 150px;
+            line-height: 15px;
+            -webkit-border-radius: 5;
+            -moz-border-radius: 5;
+            border-radius: 5px;
+            border: solid #D0D0D0 1px;
+            background-color: white
+        }
+        
+        .data-div table {
+            border-collapse: collapse;
+            border : 1px;
+        }
+        
+        .data-div th {
+            padding: 5px;
+            border: solid red 1px;
+            background: #F0F0F0;
+            width: 110px;
+        }        
+    </style>
+</head>
+
+<body onload="start()">
+<div class="container">
+    <div class="input-div">
+        <form>
+            <div class="input-group">
+                <label for="student-number">學號:</label>
+                <input id="student-number" type="text">
+                <span class="error-message error-show-message">請輸入學號</span>
+            </div>
+            <div class="input-group">
+                <label for="student-name">姓名:</label>
+                <input id="student-name" type="text">
+                <span class="error-message error-show-message">請輸入姓名</span>
+            </div>
+            <div class="input-group">
+                <label for="chinese-score">國文分數:</label>
+                <input id="chinese-score" type="text">
+                <span class="error-message error-show-message">請輸入國文分數</span>
+            </div>
+            <div class="input-group">
+                <label for="math-score">數學分數:</label>
+                <input id="math-score" type="text">
+                <span class="error-message error-show-message">請輸入數學分數</span>
+            </div>
+            <div class="input-group">
+                <label for="english-score">英文分數:</label>
+                <input id="english-score" type="text">
+                <span class="error-message error-show-message">請輸入英文分數</span>
+            </div>
+            <div class="submit-group">
+                <input type="submit" value="加入">
+                <input type="button" value="清除">
+            </div>
+        </form>
+    </div>
+    <div class="data-div">
+        <table>
+            <tr>
+                <th class="col1">學號</th>
+                <th class="col2">姓名</th>
+                <th class="col3">國文分數</th>
+                <th class="col4">數學分數</th>
+                <th class="col5">英文分數</th>
+                <th class="col6">總分</th>
+                <th class="col7">平均</th>
+            </tr>
+            <tr>
+                <td class="col1">N100092</td>
+                <td class="col2">王小三</td>
+                <td class="col3">89</td>
+                <td class="col4">77</td>
+                <td class="col5">78</td>
+                <td class="col6">244</td>
+                <td class="col7">81.3</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>
