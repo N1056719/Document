@@ -9,6 +9,7 @@
 	<script>
 		// 頁面第一次載入時的處理程序
 		function formLoad() {
+			$('#form1').on('blur',formBlur) ;
 			// 取出每一個 Input 物件
 			$('input[type=image]').each(function () {
 				// 取出物件的 ID，組成 JQuery 的物件
@@ -16,7 +17,16 @@
 				// 加入 OnClick 的事件處理程序
 				$(idName).on('click', summit);
 				// 加入 滑鼠移入與移出 的事件處理程序
-				$(idName).hover(mouseEnter, mouseExit);				
+				$(idName).hover(mouseEnter, mouseExit);
+				mouseEnter($(event.target));
+			}	
+			)
+		}
+		function formBlur() {
+			alert('hello') ;
+			// 取出每一個 Input 物件
+			$('input[type=image]').each(function () {
+				console.log( this.id) ;
 			}
 			)
 		}
@@ -49,7 +59,7 @@
 			}
 		}
 		// 滑鼠移到圖片上時的的處理程序
-		function mouseEnter() {
+		function mouseEnter(e) {
 			// 取得按鈕 ID 最後一個數字字元
 			var idNum = event.target.id.substring(event.target.id.length - 1);
 			// 經過計算後決定要開啟的圖片
@@ -74,10 +84,10 @@
 
 	</script>
 <style>
-	body
-	{
-		text-align: center;
-	}
+    .container {
+        width: 1300px;
+        margin: 0 auto;
+    }
 	/* 圖片的樣式 */       
 	div img {
 		background-color: #4CAF50; /* Green */
@@ -101,12 +111,12 @@
         }
 </style>
 </head>
-<body onload="formLoad()">
+<body onload="formLoad()" id="Form1">
 <div class="container">
 	<div class="submit-group">
 		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
 		<div>
-			<input type="image" id="Page01" src="../Images/Page010011.jpg"/>
+			<input type="image" id="Page01" />
 			<input type="image" id="Page02" src="../Images/Page010021.jpg" />
 			<input type="image" id="Page03" src="../Images/Page010031.jpg" />
 			<input type="image" id="Page04" src="../Images/Page010041.jpg" />
