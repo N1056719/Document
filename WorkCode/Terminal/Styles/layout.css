@@ -1,0 +1,57 @@
+/* 重置所有margin及padding */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* body 設定背景圖(色) */
+body {
+    /*background-image:url(images/body_bg.jpg);*/
+}
+
+
+/* 網頁內容最外層包裝, 主要是用margin來做左右置中 */
+#wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+
+/* 以下是做佈局的設定 */
+/* =======標題區======== */
+
+#header {
+    height: 120px;
+	background-color: #4CAF50; /* Green */
+	padding: 1px 1px;
+	display: inline-block;
+	margin: 1px ;
+}
+
+/* =======左側選單區======== */
+#sidebar1 {
+    width: 150px;
+    float: left;
+    padding-left: 52px;
+    background-color: white ;
+}
+
+/* =======內容區======== */
+#content {
+    width: 1100px;
+    float: left;
+    color: #FFF;
+    background-color: white ;
+}
+
+/* =======右側選單區======== */
+#sidebar2 {
+    width: 180px;
+    float: right;
+    background-color: darkolivegreen;
+}
+
+/* =======版權宣告區======== */
+#footer {
+    clear: both;
+    background-color: greenyellow;
+}

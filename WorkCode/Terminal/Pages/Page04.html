@@ -3,6 +3,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
+    <link href="../Styles/layout.css" rel="stylesheet" type="text/css"/>	
+ 	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous"></script>
+	<script>
+		// 畫面上按鈕按下後的處理程序
+		function summit() {
+			// 判斷呼叫這個函數的按鈕,決定開啟頁面
+			if (event.target.id == 'Page01') {
+				// 第一顆按鈕：學習資源
+				window.open('Page03.html');
+			}
+			else if (event.target.id == 'Page02') {
+				// 第二顆按鈕：相簿
+				window.open('Page04.html');
+			}
+			else if (event.target.id == 'Page03') {
+				// 瘋影音
+				window.open('Page02.html');
+			}
+			else if (event.target.id == 'Page04') {
+				// 行事曆
+				window.open('Page05.html');
+			}
+			else if (event.target.id == 'Page05') {
+				// 投資理財
+				window.open('Page07.html');
+			}
+			else if (event.target.id == 'Page06') {
+				// 我的書房
+				window.open('Page06.html');
+			}
+		}
+	</script>
 <style>
 body
 {
@@ -22,16 +56,13 @@ div img {
 </style>
 </head>
 
-<body><img src="../Images/enjoy120.jpg" width="1260" height="120" />
+<body onload="formLoad()">
+	<img src="../Images/enjoy120.jpg" width="1260" height="120" />
 <div><img src="../Images/Page040011.jpg" width="150" height="80" /><img src="../Images/Page040021.jpg" width="540" height="80" /><img src="../Images/Page040031.jpg" width="540" height="80" /></div>
 <div><img src="../Images/Page040041.jpg" width="150" height="80" /><img src="../Images/Page040051.jpg" width="540" height="80" /></div>
 <div></div>
 <div><img src="../Images/Page040061.jpg" width="150" height="80" /></div>
 <div><img src="../Images/Page040071.jpg" width="150" height="80" /></div>
 <div></div>
-<p></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 </body>
 </html>

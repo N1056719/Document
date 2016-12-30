@@ -4,32 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>主頁面</title>
+    <link href="../Styles/layout.css" rel="stylesheet" type="text/css"/>	
+ 	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
 	<script>
-		// 頁面第一次載入時的處理程序
-		function formLoad() {
-			$('#form1').on('blur',formBlur) ;
-			// 取出每一個 Input 物件
-			$('input[type=image]').each(function () {
-				// 取出物件的 ID，組成 JQuery 的物件
-				var idName = '#' + this.id;
-				// 加入 OnClick 的事件處理程序
-				$(idName).on('click', summit);
-				// 加入 滑鼠移入與移出 的事件處理程序
-				$(idName).hover(mouseEnter, mouseExit);
-				mouseEnter($(event.target));
-			}	
-			)
-		}
-		function formBlur() {
-			alert('hello') ;
-			// 取出每一個 Input 物件
-			$('input[type=image]').each(function () {
-				console.log( this.id) ;
-			}
-			)
-		}
 		// 畫面上按鈕按下後的處理程序
 		function summit() {
 			// 判斷呼叫這個函數的按鈕,決定開啟頁面
@@ -58,71 +37,45 @@
 				window.open('Page06.html');
 			}
 		}
-		// 滑鼠移到圖片上時的的處理程序
-		function mouseEnter(e) {
-			// 取得按鈕 ID 最後一個數字字元
-			var idNum = event.target.id.substring(event.target.id.length - 1);
-			// 經過計算後決定要開啟的圖片
-			var imageFileName = '../Images/Page0100' + idNum + '2.jpg';
-			// 取得呼叫此程序的按鈕 ID
-			var idName = '#' + event.target.id;
-			// 透過 JQuery 變更圖片
-			$(idName).attr('src', imageFileName);
-
-		}
-		// 滑鼠離開圖片時的處理程序
-		function mouseExit() {
-			// 取得按鈕 ID 最後一個數字字元
-			var idNum = event.target.id.substring(event.target.id.length - 1);
-			// 經過計算後決定要開啟的圖片
-			var imageFileName = '../Images/Page0100' + idNum + '1.jpg';
-			// 取得呼叫此程序的按鈕 ID
-			var idName = '#' + event.target.id;
-			// 透過 JQuery 變更圖片
-			$(idName).attr('src', imageFileName);
-		}
-
 	</script>
 <style>
-    .container {
-        width: 1300px;
-        margin: 0 auto;
-    }
-	/* 圖片的樣式 */       
-	div img {
+	body
+	{
+		text-align: center;
+	}
+	/* 送出按鈕的樣式 */       
+    .submit-group input 
+	{
 		background-color: #4CAF50; /* Green */
 		padding: 1px 1px;
 		display: inline-block;
 		margin: 1px ;
-	}
-	/* 送出按鈕的樣式 */       
-    .submit-group input {
-            font-weight: bolder;
-			width:628px;
-			height:80px;
-			position:static;
-            line-height: 15px;
-			margin: 1px ;
-            -webkit-border-radius: 5; /*圓突狀*/
-            -moz-border-radius: 5;
-            border-radius: 5px;
-            border: solid #D0D0D0 1px;
-            background-color: white
+        font-weight: bolder;
+		width:628px;
+		height:80px;
+		position:static;
+        line-height: 15px;
+		margin: 1px ;
+        -webkit-border-radius: 5; /*圓突狀*/
+        -moz-border-radius: 5;
+        border-radius: 5px;
+        border: solid #D0D0D0 1px;
+        background-color: white
         }
 </style>
 </head>
-<body onload="formLoad()" id="Form1">
+<body onload="formLoad()">
 <div class="container">
-	<div class="submit-group">
+	<div id='header'>
 		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
-		<div>
-			<input type="image" id="Page01" />
+	</div>	
+	<div class="submit-group">
+			<input type="image" id="Page01" src="../Images/Page010011.jpg"/>
 			<input type="image" id="Page02" src="../Images/Page010021.jpg" />
 			<input type="image" id="Page03" src="../Images/Page010031.jpg" />
 			<input type="image" id="Page04" src="../Images/Page010041.jpg" />
 			<input type="image" id="Page05" src="../Images/Page010051.jpg" />
 			<input type="image" id="Page06" src="../Images/Page010061.jpg" />
-		</div>
 	</div>
 	</body>
 	</html>
