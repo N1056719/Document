@@ -4,10 +4,17 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>主頁面</title>
+	<!-CSS --->
 	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<link href="../Styles/appearance.css" rel="stylesheet" type="text/css" />
+	<!-JQuery --->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<!-整個網站的處理程序 --->
+	<script type="text/javascript" src="../Scripts/Cycle.js"></script>
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<!-標題圖片輪播所載入的 Plug-in --->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 	<script>
 		// 畫面上按鈕按下後的處理程序
@@ -56,6 +63,14 @@
 	<!-顯示標題圖片--->
 	<div id='header'>
 		<img id='headImage' />
+		<!--
+		<div class="pics">
+			<img src="../images/Header01.jpg" width="1260" height="120" />
+			<img src="../images/Header02.jpg" width="1260" height="120" />
+			<img src="../images/Header03.jpg" width="1260" height="120" />
+			<img src="../images/Header04.jpg" width="1260" height="120" />
+		</div>
+		-->
 	</div>
 	<div class="submit-group">
 		<input type="image" id="Page0101" />
@@ -71,4 +86,5 @@
 	</div>
 </div>
 </body>
+
 </html>

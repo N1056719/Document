@@ -1,7 +1,17 @@
+	 jQuery(document).ready(function($) {   
+$('#slider').cycle({   
+          fx:    'fade',  //特效           speed:  7500,
+          timeout:  7200,
+          random:  1
+         });
+ });
+
 // 頁面第一次載入時的處理程序
 function formLoad() {
 	// 處理標題圖片輪播
 	$('#headImage').attr('src', '../Images/enjoy120.jpg');
+	$('#headImage').attr('width', '1260px');
+	$('#headImage').attr('height', '120px');
 	// 取出每一個 Input 物件
 	$('input[type=image]').each(function () {
 		// 取得按鈕 ID 最後一個數字字元
@@ -22,7 +32,7 @@ function formLoad() {
 	// 版權宣告
 	$('#copyRight').attr('src', '../Images/copyright.jpg');
 	$('#copyRight').attr('width', '1260px');
-	$('#copyRight').attr('height', '60px');	
+	$('#copyRight').attr('height', '60px');
 }
 // 滑鼠移到圖片上時的的處理程序
 function mouseEnter() {
