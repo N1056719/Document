@@ -69,11 +69,11 @@
 </style>
 </head>
 <body onload="formLoad()">
-<div class="container">
+<div id="container">
 	<div id='header'>
 		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
 	</div>
-	<div id='leftSideBar' class="DefaultButtonStyle left-sidebar-submit-group">
+	<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
 		<!-這是左側的 SideBar--->
 		<input type="image" id="Page0701" />
 		<input type="image" id="Page0704" />
@@ -81,18 +81,20 @@
 		<input type="image" id="Page0710" />
 		<input type="image" id="Page0711" />
 	</div>
+	<div id='content' class="DefaultButtonStyle sub-submit-group">
+		<!-這是內容區顯示的位置--->
+		<input type="image" id="Page0702" />
+		<input type="image" id="Page0703" />
+		<input type="image" id="Page0705" />
+		<input type="image" id="Page0706" />
+		<input type="image" id="Page0708" />
+		<input type="image" id="Page0709" />
+		<!-顯示版權聲告--->
+	</div>
+	<div id='footer'>
+		<img id='copyRight' />
+	</div>
 </div>
-<div id='content' class="sub-submit-group">
-	<!-這是內容區顯示的位置--->
-	<input type="image" id="Page0702" />
-	<input type="image" id="Page0703" />
-	<input type="image" id="Page0705" />
-	<input type="image" id="Page0706" />
-	<input type="image" id="Page0708" />
-	<input type="image" id="Page0709" />
-</div>
-<!-顯示版權聲告--->
-<div id='footer' <img src="../Images/copyright.jpg" width="1260" height="120" />
-</div>
+</body>
 
 </html>

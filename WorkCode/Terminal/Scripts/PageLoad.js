@@ -14,7 +14,11 @@ function formLoad() {
 		// 經過計算後決定要開啟的圖片
 		var imageFileName = '../Images/' + idNum + '11.jpg';
 		$(idName).attr('src', imageFileName);
+		$(idName).attr('width', '1260px');
+		$(idName).attr('height', '60px');
 	})
+	// 版權宣告
+	$('#copyRight').attr('src', '../Images/copyright.jpg');
 }
 // 滑鼠移到圖片上時的的處理程序
 function mouseEnter() {

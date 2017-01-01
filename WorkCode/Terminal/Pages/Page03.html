@@ -69,12 +69,11 @@
 </style>
 </head>
 <body onload="formLoad()">
-<div class="container">
+<div id="container">
 	<div id='header'>
 		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
 	</div>
-
-	<div id='leftSideBar' class="DefaultButtonStyle left-sidebar-submit-group">
+	<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
 		<!-這是左側的 SideBar--->
 		<input type="image" id="Page0301" />
 		<input type="image" id="Page0304" />
@@ -82,18 +81,20 @@
 		<input type="image" id="Page0309" />
 		<input type="image" id="Page0310" />
 		<input type="image" id="Page0311" />
-
 	</div>
-	<div id='content' class="sub-submit-group">
+	<div id='content' class="DefaultButtonStyle sub-submit-group">
 		<!-這是內容區顯示的位置--->
 		<input type="image" id="Page0302" />
 		<input type="image" id="Page0303" />
 		<input type="image" id="Page0305" />
 		<input type="image" id="Page0306" />
 		<input type="image" id="Page0308" />
+		<!-顯示新聞--->
+		<div id='feedControl'>Loading...</div>
 	</div>
 	<!-顯示版權聲告--->
-	<div id='footer'
-		<img src="../Images/copyright.jpg" width="1260" height="120" />
+	<div id='footer'>
+		<img id='copyRight' />
 	</div>
-	</html>
+</div>
+</body>

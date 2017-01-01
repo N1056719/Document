@@ -17,12 +17,11 @@
 	height: 120px;
 	background-color: #4CAF50; /* Green */
 	padding: 1px 1px;
-	display: inline-block;
 	margin: 1px;
 	float: left;
 }
 /* =======左側選單顯示區======== */
-#leftSideBar
+.leftSideBar
 {
 	width: 150px;
 	float: left;
@@ -30,7 +29,7 @@
 	background-color: white;
 }
 /* =======左側選單顯示區======== */
-#righttSideBar
+.righttSideBar
 {
 	width: 150px;
 	float: left;
@@ -44,11 +43,13 @@
 	float: left;
 	color: #FFF;
 	background-color: white;
+	margin: auto;
 }
 /* =======內文顯示區======== */
 #content
 {
 	width: 1100px;
+	height: 400px;
 	float: left;
 	color: #FFF;
 	background-color: white;
@@ -56,8 +57,14 @@
 /* =======版權宣告區======== */
 #footer
 {
+	height: 120px;
+	background-color: white;
+	padding: 1px 1px;
+	margin-top: 10px;
+	margin-left: 5px;
+	float: left ;
 	clear: both;
-	background-color: greenyellow;
+position: relative ;
 }
 
 .left-sidebar-submit-group input
@@ -102,6 +109,8 @@
 	border-radius: 10px;
 	width: 530px;
 	height: 80px;
+	margin: 5px;
+	float: left;
 }
 #feedControl
 {
