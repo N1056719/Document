@@ -1,69 +1,90 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
-    <link href="../Styles/layout.css" rel="stylesheet" type="text/css"/>	
- 	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>我的書房</title>
+	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
 	<script>
 		// 畫面上按鈕按下後的處理程序
 		function summit() {
 			// 判斷呼叫這個函數的按鈕,決定開啟頁面
-			if (event.target.id == 'Page01') {
-				// 第一顆按鈕：學習資源
-				window.open('Page03.html');
+			if (event.target.id == 'Page0601') {
+				// 第一顆按鈕：公立圖書館
+				window.open('http://www.nlpi.edu.tw/');
 			}
-			else if (event.target.id == 'Page02') {
-				// 第二顆按鈕：相簿
-				window.open('Page04.html');
+			else if (event.target.id == 'Page0602') {
+				// 第二顆按鈕：新北市立圖書館
+				window.open('http://www.library.ntpc.gov.tw/');
 			}
-			else if (event.target.id == 'Page03') {
-				// 瘋影音
-				window.open('Page02.html');
+			else if (event.target.id == 'Page0603') {
+				// 台北商業大學圖書館
+				window.open('http://library.ntub.edu.tw/mp.asp?mp=1');
 			}
-			else if (event.target.id == 'Page04') {
-				// 行事曆
-				window.open('Page05.html');
+			else if (event.target.id == 'Page0604') {
+				// 大學圖書館
+				window.open('不知道');
 			}
-			else if (event.target.id == 'Page05') {
-				// 投資理財
-				window.open('Page07.html');
+			else if (event.target.id == 'Page0605') {
+				// 討論室預約
+				window.open('不知道');
 			}
-			else if (event.target.id == 'Page06') {
-				// 我的書房
-				window.open('Page06.html');
+			else if (event.target.id == 'Page0606') {
+				// Google Play 圖書
+				window.open('https://play.google.com/store/books?hl=zh_TW');
+			}
+						else if (event.target.id == 'Page0607') {
+				// 月借月開心 閱讀不打烊
+				window.open('不知道');
+			}
+						else if (event.target.id == 'Page0608') {
+				// UDN 讀書吧
+				window.open('http://reading.udn.com/v2/bookMain.do');
+			}
+						else if (event.target.id == 'Page0609') {
+				// 圖書資源服務平台
+				window.open('http://library.nttlrc.scu.edu.tw/index.aspx');
+			}
+									else if (event.target.id == 'Page0610') {
+				// 哂書房
+				window.open('不知道');
 			}
 		}
-	</script>
-	<style>
-body
-{
- align: center;
-}
-div img {
-	background-color: #4CAF50; /* Green */
-	border: 1px;
-	color: white;
-	padding: 1px 1px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 1px;
-}
+		</script>
+
+
+<style>
+	body
+	{
+		text-align: center;
+	}
 
 </style>
 </head>
-
 <body onload="formLoad()">
-	<img src="../Images/enjoy120.jpg" width="1260" height="120" />
-<div><img src="../Images/Page060011.jpg" width="150" height="80" /><img src="../Images/Page060021.jpg" width="540" height="80" /><img src="../Images/Page060031.jpg" width="540" height="80" /></div>
-<div><img src="../Images/Page060041.jpg" width="150" height="80" /><img src="../Images/Page060051.jpg" width="540" height="80" /><img src="../Images/Page060061.jpg" width="540" height="80" /></div>
-
-<div><img src="../Images/Page060071.jpg" width="150" height="80" /><img src="../Images/Page060081.jpg" width="540" height="80" /></div>
-<div><img src="../Images/Page060091.jpg" width="150" height="80" /></div>
-<div><img src="../Images/Page060101.jpg" width="150" height="80" /></div>
-<div>    </div>
-</body>
+<div class="container">
+	<div id='header'>
+		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
+	</div>
+	
+			<div id='sidebar1' class="left-sidebar-submit-group">
+		<!-這是左側的 SideBoard--->
+		<input type="image" id="Page0601"/>
+		<input type="image" id="Page0604"/>						        <input type="image" id="Page0607"/>
+		<input type="image" id="Page0609"/>
+		<input type="image" id="Page0610"/>
+		
+	</div>
+</div>
+	<div id='content' class="sub-submit-group">
+		<!-這是內容區顯示的位置--->
+		<input type="image" id="Page0602"/>
+		<input type="image" id="Page0603"/>
+		<input type="image" id="Page0605"/>
+		<input type="image" id="Page0606"/>
+        <input type="image" id="Page0608"/>
+	</div>
 </html>

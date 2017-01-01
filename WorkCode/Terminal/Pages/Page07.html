@@ -1,69 +1,96 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
-    <link href="../Styles/layout.css" rel="stylesheet" type="text/css"/>	
- 	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>投資理財</title>
+	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
 	<script>
 		// 畫面上按鈕按下後的處理程序
 		function summit() {
 			// 判斷呼叫這個函數的按鈕,決定開啟頁面
-			if (event.target.id == 'Page01') {
-				// 第一顆按鈕：學習資源
-				window.open('Page03.html');
+			if (event.target.id == 'Page0701') {
+				// 第一顆按鈕：財經新聞
+				window.open('https://tw.news.yahoo.com/finance/');
 			}
-			else if (event.target.id == 'Page02') {
-				// 第二顆按鈕：相簿
-				window.open('Page04.html');
+			else if (event.target.id == 'Page0702') {
+				// 第二顆按鈕：yahoo奇摩股市
+				window.open('https://tw.stock.yahoo.com/');
 			}
-			else if (event.target.id == 'Page03') {
-				// 瘋影音
-				window.open('Page02.html');
+			else if (event.target.id == 'Page0703') {
+				// 國際財經新聞
+				window.open('http://fund.megabank.com.tw/ETFWeb/HTML/ETNEWS.DJHTM#TYPE=1&DATE=&PAGE=1');
 			}
-			else if (event.target.id == 'Page04') {
-				// 行事曆
-				window.open('Page05.html');
+			else if (event.target.id == 'Page0704') {
+				// 股票行情
+				window.open('http://www.fmidst.com.tw/Commander/index.html?gclid=CI_Ij43knNECFcaUvQodBoMMXA');
 			}
-			else if (event.target.id == 'Page05') {
-				// 投資理財
-				window.open('Page07.html');
+			else if (event.target.id == 'Page0705') {
+				// 非凡國際財經新聞
+				window.open('http://display.tw/money.asp');
 			}
-			else if (event.target.id == 'Page06') {
-				// 我的書房
-				window.open('Page06.html');
+			else if (event.target.id == 'Page0706') {
+				// 中國信託網路銀行
+				window.open('https://www.ctbcbank.com/CTCBPortalWeb/toPage?id=TW_RB_TX_ebank_110101');
+			}
+						else if (event.target.id == 'Page0707') {
+				// 期貨行情
+				window.open('http://info512.taifex.com.tw/Future/Disclaimer.aspx');
+			}
+						else if (event.target.id == 'Page0708') {
+				// 中信方便家收支管理
+				window.open('https://www.ctbcbank.com/html/fileUpload/homebank/rcplus.html');
+			}
+						else if (event.target.id == 'Page0709') {
+				// 實價登錄查詢-591房屋交易網
+				window.open('https://sale.591.com.tw/');
+			}
+						else if (event.target.id == 'Page0710') {
+				// 資產管理
+				window.open('不知道');
+			}
+									else if (event.target.id == 'Page0711') {
+				// 收支管理
+				window.open('不知道');
 			}
 		}
-	</script>
+		</script>
+
+
 <style>
-body
-{
- align: center;
-}
-div img {
-	background-color: #4CAF50; /* Green */
-	border: 1px;
-	color: white;
-	padding: 1px 1px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 1px;
-}
+	body
+	{
+		text-align: center;
+	}
 
 </style>
 </head>
-
 <body onload="formLoad()">
-	<img src="../Images/enjoy120.jpg" width="1260" height="120" />
-<div><img src="../Images/Page070011.jpg" width="150" height="80" /><img src="../Images/Page070021.jpg" width="540" height="80" /><img src="../Images/Page070031.jpg" width="540" height="80" /></div>
-<div><img src="../Images/Page070041.jpg" width="150" height="80" /><img src="../Images/Page070051.jpg" width="540" height="80" /><img src="../Images/Page070061.jpg" width="540" height="80" /></div>
-<div><img src="../Images/Page070071.jpg" width="150" height="80" /><img src="../Images/Page070081.jpg" width="540" height="80" /><img src="../Images/Page070091.jpg" width="540" height="80" /></div>
-<div><img src="../Images/Page070101.jpg" width="150" height="80" /></div>
-<div><img src="../Images/Page070111.jpg" width="150" height="80" /></div>
+<div class="container">
+	<div id='header'>
+		<img src="../Images/enjoy120.jpg" width="1260" height="120" />
+	</div>
+	
+			<div id='sidebar1' class="left-sidebar-submit-group">
+		<!-這是左側的 SideBoard--->
+		<input type="image" id="Page0701"/>
+		<input type="image" id="Page0704"/>						        <input type="image" id="Page0707"/>
+		
+		<input type="image" id="Page0710"/>
+		<input type="image" id="Page0711"/>
+	</div>
+</div>
+	<div id='content' class="sub-submit-group">
+		<!-這是內容區顯示的位置--->
+		<input type="image" id="Page0702"/>
+		<input type="image" id="Page0703"/>
+		<input type="image" id="Page0705"/>
+		<input type="image" id="Page0706"/>
+        <input type="image" id="Page0708"/>
+        <input type="image" id="Page0709"/>
+	</div>
 
-<div>    </div>
-</body>
 </html>
