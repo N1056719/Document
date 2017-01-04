@@ -2,14 +2,6 @@
 var imageIndex = 0;
 // 設定圖片輪播最大數，超過這個數值將從第一張重複
 var maxImageCount = 5;
-jQuery(document).ready(function ($) {
-	$('#slider').cycle({
-		fx: 'fade',  //特效           speed:  7500,
-		timeout: 7200,
-		random: 1
-	});
-});
-
 // 頁面第一次載入時的處理程序
 function formLoad() {
 	// 載入字串處理動態函式庫
