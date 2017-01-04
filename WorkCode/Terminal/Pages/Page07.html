@@ -30,7 +30,7 @@
 			}
 			else if (event.target.id == 'Page0705') {
 				// 非凡國際財經新聞
-				window.open('http://display.tw/money.asp');
+				window.open('http://365tv.org/%E9%9D%9E%E5%87%A1%E8%B2%A1%E7%B6%93%E5%8F%B0-%E7%9B%B4%E6%92%AD.html');
 			}
 			else if (event.target.id == 'Page0706') {
 				// 中國信託網路銀行
@@ -50,51 +50,43 @@
 			}
 			else if (event.target.id == 'Page0710') {
 				// 資產管理
-				window.open('不知道');
+				window.open('https://www.jpmrich.com.tw/wps/portal');
 			}
 			else if (event.target.id == 'Page0711') {
 				// 收支管理
-				window.open('不知道');
+				window.open('https://gfamily.cwgv.com.tw/content/index/1826');
 			}
 		}
 	</script>
-
-
-<style>
-	body
-	{
-		text-align: center;
-	}
-
-</style>
 </head>
+
 <body onload="formLoad()">
-<div id="container">
-	<div id='header'>
-		<img id='headImage' />
+	<div id="container">
+		<div id='header'>
+			<img id='headImage' />
+		</div>
+		<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
+			<!-這是左側的 SideBar--->
+			<input type="image" id="Page0701" />
+			<input type="image" id="Page0704" />
+			<input type="image" id="Page0707" />
+			<input type="image" id="Page0710" />
+			<input type="image" id="Page0711" />
+		</div>
+		<div id='content' class="DefaultButtonStyle sub-submit-group">
+			<!-這是內容區顯示的位置--->
+			<input type="image" id="Page0702" />
+			<input type="image" id="Page0703" />
+			<input type="image" id="Page0705" />
+			<input type="image" id="Page0706" />
+			<input type="image" id="Page0708" />
+			<input type="image" id="Page0709" />
+			<!-顯示版權聲告--->
+		</div>
+		<div id='footer'>
+			<img id='copyRight' />
+		</div>
 	</div>
-	<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
-		<!-這是左側的 SideBar--->
-		<input type="image" id="Page0701" />
-		<input type="image" id="Page0704" />
-		<input type="image" id="Page0707" />
-		<input type="image" id="Page0710" />
-		<input type="image" id="Page0711" />
-	</div>
-	<div id='content' class="DefaultButtonStyle sub-submit-group">
-		<!-這是內容區顯示的位置--->
-		<input type="image" id="Page0702" />
-		<input type="image" id="Page0703" />
-		<input type="image" id="Page0705" />
-		<input type="image" id="Page0706" />
-		<input type="image" id="Page0708" />
-		<input type="image" id="Page0709" />
-		<!-顯示版權聲告--->
-	</div>
-	<div id='footer'>
-		<img id='copyRight' />
-	</div>
-</div>
 </body>
 
 </html>

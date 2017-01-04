@@ -1,0 +1,242 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #aaaaaa; font-style: italic">/* 重置所有margin及padding */</span>
+*
+{
+	<span style="color: #0000aa">padding</span>: <span style="color: #009999">0</span>;
+	<span style="color: #0000aa">margin</span>: <span style="color: #009999">0</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* 網頁內容最外層包裝, 主要是用margin來做左右置中 */</span>
+<span style="color: #00aa00">#wrapper</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">980px</span>;
+	<span style="color: #0000aa">margin</span>: <span style="color: #009999">0</span> <span style="color: #0000aa">auto</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* 以下是做佈局的設定 */</span>
+<span style="color: #aaaaaa; font-style: italic">/* =======標題顯示區======== */</span>
+<span style="color: #00aa00">#header</span>
+{
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">120px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #009999">#4CAF50</span>; <span style="color: #aaaaaa; font-style: italic">/* Green */</span>
+	<span style="color: #0000aa">padding</span>: <span style="color: #009999">1px</span> <span style="color: #009999">1px</span>;
+	<span style="color: #0000aa">margin</span>: <span style="color: #009999">1px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* =======左側選單顯示區======== */</span>
+<span style="color: #00aa00; text-decoration: underline">.leftSideBar</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">150px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+	<span style="color: #0000aa">padding-left</span>: <span style="color: #009999">2px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* =======左側選單顯示區======== */</span>
+<span style="color: #00aa00; text-decoration: underline">.righttSideBar</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">150px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+	<span style="color: #0000aa">padding-left</span>: <span style="color: #009999">2px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* =======主體顯示區======== */</span>
+<span style="color: #00aa00">#container</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">1400px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+	<span style="color: #0000aa">color</span>: <span style="color: #009999">#FFF</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+	<span style="color: #0000aa">margin</span>: <span style="color: #0000aa">auto</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* =======內文顯示區======== */</span>
+<span style="color: #00aa00">#content</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">1100px</span>;
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">460px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+	<span style="color: #0000aa">color</span>: <span style="color: #009999">#FFF</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* =======版權宣告區======== */</span>
+<span style="color: #00aa00">#footer</span>
+{
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">120px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+	<span style="color: #0000aa">padding</span>: <span style="color: #009999">1px</span> <span style="color: #009999">1px</span>;
+	<span style="color: #0000aa">margin-top</span>: <span style="color: #009999">10px</span>;
+	<span style="color: #0000aa">margin-left</span>: <span style="color: #009999">5px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span> ;
+	<span style="color: #0000aa">clear</span>: <span style="color: #0000aa">both</span>;
+<span style="color: #0000aa">position</span>: <span style="color: #0000aa">relative</span> ;
+}
+
+<span style="color: #00aa00; text-decoration: underline">.left-sidebar-submit-group</span> <span style="color: #1e90ff; font-weight: bold">input</span>
+{
+	<span style="color: #0000aa">font-weight</span>: <span style="color: #0000aa">bolder</span>;
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">140px</span>;
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">60px</span>;
+	<span style="color: #0000aa">line-height</span>: <span style="color: #009999">15px</span>;
+	-webkit-<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5</span>; <span style="color: #aaaaaa; font-style: italic">/*圓突狀*/</span>
+	-moz-<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5</span>;
+	<span style="color: #0000aa">vertical-align</span>: <span style="color: #0000aa">baseline</span>;
+	<span style="color: #0000aa">display</span>: <span style="color: #0000aa">inline</span>-<span style="color: #0000aa">block</span>;
+	<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5px</span>;
+	<span style="color: #0000aa">border</span>: <span style="color: #0000aa">solid</span> <span style="color: #009999">#D0D0D0</span> <span style="color: #009999">1px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* Page01-Page07 */</span>
+<span style="color: #aaaaaa; font-style: italic">/* 預設按鈕的樣式 */</span>
+<span style="color: #00aa00; text-decoration: underline">.DefaultButtonStyle</span>
+{
+	<span style="color: #0000aa">font-weight</span>: <span style="color: #0000aa">bolder</span>;
+	<span style="color: #0000aa">line-height</span>: <span style="color: #009999">15px</span>;
+	-webkit-<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5</span>; <span style="color: #aaaaaa; font-style: italic">/*圓突狀*/</span>
+	-moz-<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5</span>;
+	<span style="color: #0000aa">vertical-align</span>: <span style="color: #0000aa">baseline</span>;
+	<span style="color: #0000aa">display</span>: <span style="color: #0000aa">inline</span>-<span style="color: #0000aa">block</span>;
+	<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">5px</span>;
+	<span style="color: #0000aa">border</span>: <span style="color: #0000aa">solid</span> <span style="color: #009999">#D0D0D0</span> <span style="color: #009999">1px</span>;
+	<span style="color: #0000aa">background-color</span>: <span style="color: #00aaaa">white</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* Page02-Page07 */</span>
+<span style="color: #aaaaaa; font-style: italic">/* 送出按鈕的樣式 */</span>
+<span style="color: #00aa00; text-decoration: underline">.submit-group</span> <span style="color: #1e90ff; font-weight: bold">input</span>
+{
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">595px</span>;
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">80px</span>;
+}
+<span style="color: #aaaaaa; font-style: italic">/* Page01 */</span>
+<span style="color: #aaaaaa; font-style: italic">/* 送出按鈕的樣式 */</span>
+<span style="color: #00aa00; text-decoration: underline">.sub-submit-group</span> <span style="color: #1e90ff; font-weight: bold">input</span>
+{
+	<span style="color: #0000aa">border</span>-radius: <span style="color: #009999">10px</span>;
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">530px</span>;
+	<span style="color: #0000aa">height</span>: <span style="color: #009999">80px</span>;
+	<span style="color: #0000aa">margin</span>: <span style="color: #009999">5px</span>;
+	<span style="color: #0000aa">float</span>: <span style="color: #0000aa">left</span>;
+}
+<span style="color: #00aa00">#feedControl</span>
+{
+	<span style="color: #0000aa">margin-top</span>: <span style="color: #009999">10px</span>;
+	<span style="color: #0000aa">margin-left</span>: <span style="color: #0000aa">auto</span>;
+	<span style="color: #0000aa">margin-right</span>: <span style="color: #0000aa">auto</span>;
+	<span style="color: #0000aa">width</span>: <span style="color: #009999">1000px</span>;
+}
+</pre></td></tr></table></div>
