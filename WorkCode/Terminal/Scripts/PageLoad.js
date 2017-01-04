@@ -12,7 +12,7 @@ function formLoad() {
 	document.getElementsByTagName("head")[0].appendChild(jsFile)
 	// 處理標題圖片輪播，一開始給予預設圖片
 	$('#headImage').attr('src', '../Images/Header01.jpg');
-	$('#headImage').attr('width', '1260px');
+	$('#headImage').attr('width', '1250px');
 	$('#headImage').attr('height', '120px');
 	// 設定更換圖片的頻率
 	var intervalSec = 3 ;

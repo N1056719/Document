@@ -15,6 +15,7 @@
 #header
 {
 	height: 120px;
+	width: 1250px;
 	background-color: #4CAF50; /* Green */
 	padding: 1px 1px;
 	margin: 1px;
@@ -23,7 +24,7 @@
 /* =======左側選單顯示區======== */
 .leftSideBar
 {
-	width: 150px;
+	width: 145px;
 	float: left;
 	padding-left: 2px;
 	background-color: white;
@@ -40,10 +41,9 @@
 #container
 {
 	width: 1400px;
-	float: left;
 	color: #FFF;
 	background-color: white;
-	margin: auto;
+	margin: auto ;
 }
 /* =======內文顯示區======== */
 #content
@@ -109,8 +109,8 @@ position: relative ;
 	border-radius: 10px;
 	width: 530px;
 	height: 80px;
-	margin: 5px;
 	float: left;
+	padding: 5px;
 }
 #feedControl
 {
