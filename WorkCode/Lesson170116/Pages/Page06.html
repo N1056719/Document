@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>我的書房</title>
+	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous"></script>
+	<script>
+		// 畫面上按鈕按下後的處理程序
+		function summit() {
+			// 判斷呼叫這個函數的按鈕,決定開啟頁面
+			if (event.target.id == 'Page0601') {
+				// 第一顆按鈕：公立圖書館
+				window.open('http://www.nlpi.edu.tw/');
+			}
+			else if (event.target.id == 'Page0602') {
+				// 第二顆按鈕：新北市立圖書館
+				window.open('http://www.library.ntpc.gov.tw/');
+			}
+			else if (event.target.id == 'Page0603') {
+				// 台北商業大學圖書館
+				window.open('http://library.ntub.edu.tw/mp.asp?mp=1');
+			}
+			else if (event.target.id == 'Page0604') {
+				// 大學圖書館
+				window.open('http://www.lib.ntu.edu.tw/');
+			}
+			else if (event.target.id == 'Page0605') {
+				// 討論室預約
+				window.open('http://www.lib.ntu.edu.tw/node/166');
+			}
+			else if (event.target.id == 'Page0606') {
+				// Google Play 圖書
+				window.open('https://play.google.com/store/books?hl=zh_TW');
+			}
+			else if (event.target.id == 'Page0607') {
+				// 月借月開心 閱讀不打烊
+				window.open('http://library.ntunhs.edu.tw/files/14-1010-16275,r137-1.php?Lang=zh-tw');
+			}
+			else if (event.target.id == 'Page0608') {
+				// UDN 讀書吧
+				window.open('http://reading.udn.com/v2/bookMain.do');
+			}
+			else if (event.target.id == 'Page0609') {
+				// 圖書資源服務平台
+				window.open('http://library.nttlrc.scu.edu.tw/index.aspx');
+			}
+			else if (event.target.id == 'Page0610') {
+				// 哂書房
+				window.open('http://www.shaishufang.com/');
+			}
+		}
+	</script>
+</head>
+
+<body onload="formLoad()">
+	<div id="container">
+		<div id='header'>
+			<img id='headImage' />
+		</div>
+		<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
+			<!-這是左側的 SideBar--->
+			<input type="image" id="Page0601" />
+			<input type="image" id="Page0604" />
+			<input type="image" id="Page0607" />
+			<input type="image" id="Page0609" />
+			<input type="image" id="Page0610" />
+		</div>
+		<div id='content' class="DefaultButtonStyle sub-submit-group">
+			<!-這是內容區顯示的位置--->
+			<input type="image" id="Page0602" />
+			<input type="image" id="Page0603" />
+			<input type="image" id="Page0605" />
+			<input type="image" id="Page0606" />
+			<input type="image" id="Page0608" />
+			<!-顯示版權聲告--->
+		</div>
+		<div id='footer'>
+			<img id='copyRight' />
+		</div>
+	</div>
+</body>
+</html>

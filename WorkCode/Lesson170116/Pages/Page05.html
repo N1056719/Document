@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>行事曆</title>
+	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous"></script>
+	<script>
+		// 畫面上按鈕按下後的處理程序
+		function summit() {
+			// 判斷呼叫這個函數的按鈕,決定開啟頁面
+			if (event.target.id == 'Page0501') {
+				// 第一顆按鈕：我的行事曆
+				window.open('https://calendar.google.com/calendar/render?pli=1#main_7');
+			}
+			else if (event.target.id == 'Page0502') {
+				// 第二顆按鈕：105年行政機關放假一覽表
+				window.open('http://www.319papago.idv.tw/holiday/2016-hr/2016_HR.html');
+			}
+			else if (event.target.id == 'Page0503') {
+				// google公司行事曆
+				window.open('https://calendar.google.com/calendar/embed?src=ntub.edu.tw_60jjikcocnllr72at4rpv5aihg%40group.calendar.google.com&ctz=Asia/Taipe');
+			}
+			else if (event.target.id == 'Page0504') {
+				// 農民曆
+				window.open('https://fate.windada.com/cgi-bin/calendar');
+			}
+			else if (event.target.id == 'Page0505') {
+				// 校園行事曆
+				window.open('http://acad.ntub.edu.tw/files/13-1004-37975.php?Lang=zh-tw');
+			}
+			else if (event.target.id == 'Page0506') {
+				// 行程便利貼
+				window.open('https://play.google.com/store/apps/details?id=com.desk.widget&hl=zh_TW');
+			}
+			else if (event.target.id == 'Page0507') {
+				// 我的收支行事曆
+				window.open('https://www.cathaylife.com.tw/life/web/ext/pages/finance/information/schedual/fin_calendar.html');
+			}
+		}
+	</script>
+</head>
+<body onload="formLoad()">
+	<div id="container">
+		<div id='header'>
+			<img id='headImage' />
+		</div>
+		<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
+			<!-這是左側的 SideBar--->
+			<input type="image" id="Page0501" />
+			<input type="image" id="Page0504" /> <input type="image" id="Page0506" />
+			<input type="image" id="Page0507" />
+		</div>
+		<div id='content' class="DefaultButtonStyle sub-submit-group">
+			<!-這是內容區顯示的位置--->
+			<input type="image" id="Page0502" />
+			<input type="image" id="Page0503" />
+			<input type="image" id="Page0505" />
+			<!-顯示版權聲告--->
+		</div>
+		<div id='footer'>
+			<img id='copyRight' />
+		</div>
+	</div>
+</body>
+
+</html>

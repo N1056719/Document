@@ -1,0 +1,164 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #aaaaaa; font-style: italic">// 設定圖片輪播的索引值</span>
+<span style="color: #0000aa">var</span> imageIndex = <span style="color: #009999">0</span>;
+<span style="color: #aaaaaa; font-style: italic">// 設定圖片輪播最大數，超過這個數值將從第一張重複</span>
+<span style="color: #0000aa">var</span> maxImageCount = <span style="color: #009999">5</span>;
+<span style="color: #aaaaaa; font-style: italic">// 頁面第一次載入時的處理程序</span>
+<span style="color: #0000aa">function</span> formLoad() {
+	<span style="color: #aaaaaa; font-style: italic">// 載入字串處理動態函式庫</span>
+	<span style="color: #0000aa">var</span> jsFile = <span style="color: #00aaaa">document</span>.
+	createElement(<span style="color: #aa5500">&quot;script&quot;</span>);
+	jsFile.setAttribute(<span style="color: #aa5500">&quot;type&quot;</span>, <span style="color: #aa5500">&quot;text/javascript&quot;</span>);
+	jsFile.setAttribute(<span style="color: #aa5500">&quot;src&quot;</span>, <span style="color: #aa5500">&quot;../Scripts/StringLibrary.js&quot;</span>);
+	<span style="color: #00aaaa">document</span>.getElementsByTagName(<span style="color: #aa5500">&quot;head&quot;</span>)[<span style="color: #009999">0</span>].appendChild(jsFile)
+	<span style="color: #aaaaaa; font-style: italic">// 處理標題圖片輪播，一開始給予預設圖片</span>
+	$(<span style="color: #aa5500">&#39;#headImage&#39;</span>).attr(<span style="color: #aa5500">&#39;src&#39;</span>, <span style="color: #aa5500">&#39;../Images/Header01.jpg&#39;</span>);
+	$(<span style="color: #aa5500">&#39;#headImage&#39;</span>).attr(<span style="color: #aa5500">&#39;width&#39;</span>, <span style="color: #aa5500">&#39;1260px&#39;</span>);
+	$(<span style="color: #aa5500">&#39;#headImage&#39;</span>).attr(<span style="color: #aa5500">&#39;height&#39;</span>, <span style="color: #aa5500">&#39;120px&#39;</span>);
+	<span style="color: #aaaaaa; font-style: italic">// 設定更換圖片的頻率</span>
+	<span style="color: #0000aa">var</span> intervalSec = <span style="color: #009999">3</span> ;
+	<span style="color: #0000aa">var</span> changeTitleImage = setInterval(<span style="color: #0000aa">function</span> () { changeImage(); }, <span style="color: #00aaaa">parseInt</span>(intervalSec)*<span style="color: #009999">1000</span>);
+	<span style="color: #aaaaaa; font-style: italic">// 取出每一個 Input 物件</span>
+	$(<span style="color: #aa5500">&#39;input[type=image]&#39;</span>).each(<span style="color: #0000aa">function</span> () {
+		<span style="color: #aaaaaa; font-style: italic">// 取得按鈕 ID 最後一個數字字元</span>
+		<span style="color: #0000aa">var</span> idNum = <span style="color: #0000aa">this</span>.id.substring(<span style="color: #0000aa">this</span>.id.length - <span style="color: #009999">8</span>);
+		console.log(idNum);
+		<span style="color: #aaaaaa; font-style: italic">// 經過計算後決定要開啟的圖片</span>
+		<span style="color: #0000aa">var</span> imageFileName = <span style="color: #aa5500">&#39;../Images/&#39;</span> + idNum + <span style="color: #aa5500">&#39;11.jpg&#39;</span>;
+		console.log(imageFileName);
+		<span style="color: #aaaaaa; font-style: italic">// 取出物件的 ID，組成 JQuery 的物件</span>
+		<span style="color: #0000aa">var</span> idName = <span style="color: #aa5500">&#39;#&#39;</span> + <span style="color: #0000aa">this</span>.id;
+		$(idName).attr(<span style="color: #aa5500">&#39;src&#39;</span>, imageFileName);
+		<span style="color: #aaaaaa; font-style: italic">// 加入事件處理程序</span>
+		<span style="color: #aaaaaa; font-style: italic">// 加入 OnClick 的事件處理程序</span>
+		$(idName).click(summit);
+		<span style="color: #aaaaaa; font-style: italic">// 加入 滑鼠移入與移出 的事件處理程序</span>
+		$(idName).hover(mouseEnter, mouseExit);
+	})
+	<span style="color: #aaaaaa; font-style: italic">// 版權宣告</span>
+	$(<span style="color: #aa5500">&#39;#copyRight&#39;</span>).attr(<span style="color: #aa5500">&#39;src&#39;</span>, <span style="color: #aa5500">&#39;../Images/copyright.jpg&#39;</span>);
+	$(<span style="color: #aa5500">&#39;#copyRight&#39;</span>).attr(<span style="color: #aa5500">&#39;width&#39;</span>, <span style="color: #aa5500">&#39;1260px&#39;</span>);
+	$(<span style="color: #aa5500">&#39;#copyRight&#39;</span>).attr(<span style="color: #aa5500">&#39;height&#39;</span>, <span style="color: #aa5500">&#39;60px&#39;</span>);}
+<span style="color: #aaaaaa; font-style: italic">// 滑鼠移到圖片上時的的處理程序</span>
+<span style="color: #0000aa">function</span> mouseEnter() {
+	<span style="color: #aaaaaa; font-style: italic">// 取得按鈕 ID 最後一個數字字元</span>
+	<span style="color: #0000aa">var</span> idNum = event.target.id.substring(event.target.id.length - <span style="color: #009999">8</span>);
+	console.log(idNum);
+	<span style="color: #aaaaaa; font-style: italic">// 經過計算後決定要開啟的圖片</span>
+	<span style="color: #0000aa">var</span> imageFileName = <span style="color: #aa5500">&#39;../Images/&#39;</span> + idNum + <span style="color: #aa5500">&#39;12.jpg&#39;</span>;
+	<span style="color: #aaaaaa; font-style: italic">// 取得呼叫此程序的按鈕 ID</span>
+	<span style="color: #0000aa">var</span> idName = <span style="color: #aa5500">&#39;#&#39;</span> + event.target.id;
+	<span style="color: #aaaaaa; font-style: italic">// 透過 JQuery 變更圖片</span>
+	console.log(<span style="color: #aa5500">&#39;id:&#39;</span> + event.target.id + <span style="color: #aa5500">&#39; file:&#39;</span> + imageFileName);
+	$(idName).attr(<span style="color: #aa5500">&#39;src&#39;</span>, imageFileName);
+}
+<span style="color: #aaaaaa; font-style: italic">// 滑鼠離開圖片時的處理程序</span>
+<span style="color: #0000aa">function</span> mouseExit() {
+	<span style="color: #aaaaaa; font-style: italic">// 取得按鈕 ID 最後一個數字字元</span>
+	<span style="color: #0000aa">var</span> idNum = event.target.id.substring(event.target.id.length - <span style="color: #009999">8</span>);
+	console.log(idNum);
+	<span style="color: #aaaaaa; font-style: italic">// 經過計算後決定要開啟的圖片</span>
+	<span style="color: #0000aa">var</span> imageFileName = <span style="color: #aa5500">&#39;../Images/&#39;</span> + idNum + <span style="color: #aa5500">&#39;11.jpg&#39;</span>;
+	<span style="color: #aaaaaa; font-style: italic">// 取得呼叫此程序的按鈕 ID</span>
+	<span style="color: #0000aa">var</span> idName = <span style="color: #aa5500">&#39;#&#39;</span> + event.target.id;
+	<span style="color: #aaaaaa; font-style: italic">// 透過 JQuery 變更圖片</span>
+	console.log(<span style="color: #aa5500">&#39;id:&#39;</span> + event.target.id + <span style="color: #aa5500">&#39; file:&#39;</span> + imageFileName);
+	$(idName).attr(<span style="color: #aa5500">&#39;src&#39;</span>, imageFileName);
+}
+<span style="color: #aaaaaa; font-style: italic">// 處理標題圖片輪播</span>
+<span style="color: #0000aa">function</span> changeImage() {
+	<span style="color: #aaaaaa; font-style: italic">// 檢查圖片索引是否已達最大值</span>
+	<span style="color: #0000aa">if</span> (<span style="color: #00aaaa">parseInt</span>(imageIndex) &gt;= <span style="color: #00aaaa">parseInt</span>(maxImageCount)) {
+		<span style="color: #aaaaaa; font-style: italic">// 從第一張圖片開始播放</span>
+		imageIndex = <span style="color: #009999">1</span>;
+	}
+	<span style="color: #0000aa">else</span> {
+		imageIndex = <span style="color: #00aaaa">parseInt</span>(imageIndex) + <span style="color: #009999">1</span>;
+	}
+	<span style="color: #aaaaaa; font-style: italic">// 經過計算後決定要開啟的圖片</span>
+	<span style="color: #0000aa">var</span> imageFileName = <span style="color: #aa5500">&#39;../Images/Header&#39;</span> + padLeft(imageIndex,<span style="color: #009999">2</span>) + <span style="color: #aa5500">&#39;.jpg&#39;</span>;
+	console.log(imageFileName) ;
+	<span style="color: #aaaaaa; font-style: italic">// 開始更換圖片</span>
+	$(<span style="color: #aa5500">&#39;#headImage&#39;</span>).attr(<span style="color: #aa5500">&#39;src&#39;</span>, imageFileName);
+}
+</pre></td></tr></table></div>

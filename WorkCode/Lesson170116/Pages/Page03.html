@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>學習資源</title>
+	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous"></script>
+	<script>
+		// 畫面上按鈕按下後的處理程序
+		function summit() {
+			// 判斷呼叫這個函數的按鈕,決定開啟頁面
+			if (event.target.id == 'Page0301') {
+				// 第一顆按鈕：考選部
+				window.open('http://www.moex.gov.tw/');
+			}
+			else if (event.target.id == 'Page0302') {
+				// 第二顆按鈕：專業考試
+				window.open('http://www.vtc.edu.hk/studyat/tc/professional-examinations-recognition/');
+			}
+			else if (event.target.id == 'Page0303') {
+				// 外語學習
+				window.open('http://www.tutorabc.com/webinar/Choose/index.asp?pop=no&media=google&transfer=video&fromwhere=V5xvyB6uEc&gclid=CPuT2I66o9ECFUp_vQod_8AK_g');
+			}
+			else if (event.target.id == 'Page0304') {
+				// 技能檢定中心
+				window.open('http://www.labor.gov.tw/');
+			}
+			else if (event.target.id == 'Page0305') {
+				// 大學資源
+				window.open('http://ucourse-tvc.yuntech.edu.tw/WebU/index.aspx');
+			}
+			else if (event.target.id == 'Page0306') {
+				// 學科資源
+				window.open('http://subject.lib.mcu.edu.tw/');
+			}
+			else if (event.target.id == 'Page0307') {
+				// 北商大官網
+				window.open('http://www.ntub.edu.tw/bin/home.php');
+			} else if (event.target.id == 'Page0308') {
+				// 運動健身
+				window.open('https://www.google.com.tw/search?q=%E9%81%8B%E5%8B%95%E5%81%A5%E8%BA%AB+%E6%96%B0%E8%81%9E&oq=%E9%81%8B%E5%8B%95%E5%81%A5%E8%BA%AB+%E6%96%B0%E8%81%9E&gs_l=serp.3...1401.22645.0.23180.32.22.5.0.0.0.1850.3724.5j3j2j5-1j8-1.12.0....0...1c.1j4.64.serp..16.5.2137...0j0i30k1j0i5i30k1.6qgowCL8Ej0');
+			}
+			else if (event.target.id == 'Page0309') {
+				// Worldgym俱樂部
+				window.open('http://www.worldgymtaiwan.com/zh-tw/reservation?gclid=CM_g1c7NnNECFYmVvQodNYoJkw');
+			}
+			else if (event.target.id == 'Page0310') {
+				// 新北市立圖書館
+				window.open('http://www.library.ntpc.gov.tw/MainPortal/htmlcnt/01a3379b61eb4a06abf200ced7a9bf2c');
+			}
+			else if (event.target.id == 'Page0311') {
+				// 台北市立圖書館
+				window.open('http://www.tpml.edu.tw/');
+			}
+
+		}
+	</script>
+</head>
+
+<body onload="formLoad()">
+	<div id="container">
+		<div id='header'>
+			<img id='headImage' />
+		</div>
+		<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
+			<!-這是左側的 SideBar--->
+			<input type="image" id="Page0301" />
+			<input type="image" id="Page0304" />
+			<input type="image" id="Page0307" />
+			<input type="image" id="Page0309" />
+			<input type="image" id="Page0310" />
+			<input type="image" id="Page0311" />
+		</div>
+		<div id='content' class="DefaultButtonStyle sub-submit-group">
+			<!-這是內容區顯示的位置--->
+			<input type="image" id="Page0302" />
+			<input type="image" id="Page0303" />
+			<input type="image" id="Page0305" />
+			<input type="image" id="Page0306" />
+			<input type="image" id="Page0308" />
+		</div>
+		<!-顯示版權聲告--->
+		<div id='footer'>
+			<img id='copyRight' />
+		</div>
+	</div>
+</body>
