@@ -6,17 +6,20 @@ var maxImageCount = 5;
 function formLoad() {
 	// 載入字串處理動態函式庫
 	var jsFile = document.
-	createElement("script");
+		createElement("script");
 	jsFile.setAttribute("type", "text/javascript");
 	jsFile.setAttribute("src", "../Scripts/StringLibrary.js");
 	document.getElementsByTagName("head")[0].appendChild(jsFile)
 	// 處理標題圖片輪播，一開始給予預設圖片
 	$('#headImage').attr('src', '../Images/Header01.jpg');
-	$('#headImage').attr('width', '1250px');
-	$('#headImage').attr('height', '120px');
+	$('#headImage').attr('width', '100%');
+	$('#headImage').attr('height', '100%');
+	// 配合 bootstrip 增加類別與屬性
+	$('#headImage').addClass("img-rounded");
+	$('#headImage').prop('alt', 'Chania');
 	// 設定更換圖片的頻率
-	var intervalSec = 3 ;
-	var changeTitleImage = setInterval(function () { changeImage(); }, parseInt(intervalSec)*1000);
+	var intervalSec = 3;
+	var changeTitleImage = setInterval(function () { changeImage(); }, parseInt(intervalSec) * 1000);
 	// 取出每一個 Input 物件
 	$('input[type=image]').each(function () {
 		// 取得按鈕 ID 最後一個數字字元
@@ -28,6 +31,12 @@ function formLoad() {
 		// 取出物件的 ID，組成 JQuery 的物件
 		var idName = '#' + this.id;
 		$(idName).attr('src', imageFileName);
+		// 配合 bootstrip 增加類別與屬性
+		$(idName).addClass("img-rounded");
+		$(idName).prop('alt', 'Chania');
+	$(idName).attr('width', '100%');
+	$(idName).attr('height', '100%');
+		
 		// 加入事件處理程序
 		// 加入 OnClick 的事件處理程序
 		$(idName).click(summit);
@@ -36,8 +45,9 @@ function formLoad() {
 	})
 	// 版權宣告
 	$('#copyRight').attr('src', '../Images/copyright.jpg');
-	$('#copyRight').attr('width', '1260px');
-	$('#copyRight').attr('height', '60px');}
+	$('#copyRight').attr('width', '100%');
+	$('#copyRight').attr('height', '100%');
+}
 // 滑鼠移到圖片上時的的處理程序
 function mouseEnter() {
 	// 取得按鈕 ID 最後一個數字字元
@@ -75,8 +85,8 @@ function changeImage() {
 		imageIndex = parseInt(imageIndex) + 1;
 	}
 	// 經過計算後決定要開啟的圖片
-	var imageFileName = '../Images/Header' + padLeft(imageIndex,2) + '.jpg';
-	console.log(imageFileName) ;
+	var imageFileName = '../Images/Header' + padLeft(imageIndex, 2) + '.jpg';
+	console.log(imageFileName);
 	// 開始更換圖片
 	$('#headImage').attr('src', imageFileName);
 }
