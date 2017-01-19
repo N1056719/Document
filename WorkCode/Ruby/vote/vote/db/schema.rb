@@ -10,17 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119052806) do
+ActiveRecord::Schema.define(version: 20170119085441) do
 
   create_table "candidates", force: :cascade do |t|
-    t.string   "name",       limit: 20
-    t.string   "party",      limit: 30
-    t.integer  "age"
+    t.string   "name",       limit: 20,                 null: false
+    t.string   "party",      limit: 30,                 null: false
+    t.integer  "age",                                   null: false
     t.text     "politics",              default: "無政黨"
     t.integer  "votes",                 default: 0
-    t.integer  "gender",                default: 0
+    t.integer  "gender",                                null: false
+    t.text     "email",                                 null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
 end

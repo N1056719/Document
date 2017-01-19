@@ -2,15 +2,20 @@ class CandidatesController < ApplicationController
     # 由於這個 controler 中有很多地方都會取用 index
     # 因此在 before action 先處理這段
     before_action :find_candidate, only: [:edit,:update,:destroy,:vote,:show]
-    
-    
-    
+
+
+
     # 這是 controler 會來執行的 method
     def index
         # 候選人列表，這裡將 table candicates 的資料全部抓出來
-        @candidates = Candidate.all
+        # @candidates = Candidate.all
+        # 指定查詢條件的寫法
+        # 條件：姓名欄位不得為空白
+        @candidates = Candidate.default_not_null_name
+        # 條件：成年的男性
+        #@candidates = Candidate.adult_male
     end
-    
+
     # 新增資料，將類別中的各個欄位清成空白
     def new
         # 這裡實作頁面會用到的變數
@@ -19,23 +24,31 @@ class CandidatesController < ApplicationController
         # 用亂數產生一個年齡
         @candidate.age =  [*20..60].sample
     end
-    
+
     # 將新增資料寫入到資料庫中
     def create
         # 寫入資料
         @candidate = Candidate.new(candidate_params)
-        
+
         # 新增程式中斷點
         # debugger
         # 在網頁上顯示訊息
-        # rander plan 
-        
+        # rander plan
+
         # 判斷寫入是否成功
         #if @candidate.save! 這個寫法會引發 catch
         begin
             if @candidate.save
                 # 寫入資料成功，將執行結果回傳給前端
                 flash[:notice] = "新增成功"
+                # 新增 user 成功後 send mail ，以下是即時送出的寫法
+                # ContactMailer.say_hello_to(@candidate).deliver
+                # 新增 user 成功後 send mail ，以下是使用批次送出的寫法
+                UserConfirmEmailJob.perform_later(@candidate)
+                # 以下指定五秒鐘之後做
+                UserConfirmEmailJob.set(wait:5.seconds).perform_later(@candidate)
+                # 以下指定明天之後做
+                UserConfirmEmailJob.set(wait_until:Date.tomorrow.noon).perform_later(@candidate)
                 redirect_to candidates_path
             else
                 # 寫入失敗
@@ -50,13 +63,13 @@ class CandidatesController < ApplicationController
             raise
         end
     end
-    
+
     # 編輯資料
     def edit
         # 以 id 取出要修改的資料列
         # @candidate = Candidate.find_by(id: params[:id])
-    end 
-    
+    end
+
     # 資料更新的方法
     def update
         # 寫入資料
@@ -72,21 +85,21 @@ class CandidatesController < ApplicationController
             render :edit
         end
     end
-    
+
     # 刪除資料
     def destroy
         # 以 id 取出要修改的資料列
         # @candidate = Candidate.find_by(id: params[:id])
-        @candidate.destroy 
+        @candidate.destroy
         if @candidate
             # 更新資料成功，將執行結果回傳給前端
             redirect_to candidates_path, notice: "候選人資料已經刪除"
         end
     end
-    
+
     def show
     end
-    
+
     # 進行投票
     def vote
         # 以 id 取出要修改的資料列
@@ -96,15 +109,15 @@ class CandidatesController < ApplicationController
         # 更新資料成功，將執行結果回傳給前端
         redirect_to candidates_path, notice: "完成投票"
     end
-    
+
     # 因為安全上的問題，有心人士可以透過這個方式直接覆寫某個欄位的值而取得特別權限
     # 使用 Strong Parameters 的方式，對這包 params 進行「清洗」
     # 這個方法沒有要給外部存取，因此存取類型設為 private
     private def candidate_params
         # 只允許 name、age, party 以及 :politics 這些參數通過
-        params.require(:candidate).permit(:name,:age,:party,:politics)
+        params.require(:candidate).permit(:name,:age,:party,:politics,:gender,:email)
     end
-    
+
     # 以 id 取出要修改的資料列
     # 因為這裡很多地方都會用到，因此獨立成為一個 private function
     private def find_candidate
