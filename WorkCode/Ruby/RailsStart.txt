@@ -1,0 +1,12 @@
+# 在 C9 中啟動 application server
+rails server -b $IP -p $PORT
+
+# 建立資料庫
+rails g model candidate name gender age:integer party
+rails db:migrate
+#drop 之前的設定
+rails d model candidate name gender age:integer party
+
+
+# 查路徑
+rails route
