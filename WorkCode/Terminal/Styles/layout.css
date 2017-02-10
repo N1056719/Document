@@ -66,26 +66,11 @@
 	clear: both;
 position: relative ;
 }
-
 .left-sidebar-submit-group input
 {
 	font-weight: bolder;
 	width: 140px;
 	height: 60px;
-	line-height: 15px;
-	-webkit-border-radius: 5; /*圓突狀*/
-	-moz-border-radius: 5;
-	vertical-align: baseline;
-	display: inline-block;
-	border-radius: 5px;
-	border: solid #D0D0D0 1px;
-	background-color: white;
-}
-/* Page01-Page07 */
-/* 預設按鈕的樣式 */
-.DefaultButtonStyle
-{
-	font-weight: bolder;
 	line-height: 15px;
 	-webkit-border-radius: 5; /*圓突狀*/
 	-moz-border-radius: 5;

@@ -2,113 +2,124 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>瘋影音</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-CSS --->
 	<link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
+	<!-JQuery --->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
-
-	<style type="text/css">
-		@import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
-	</style>
-	<script type="text/javascript">
-	function load() {
-		var feed = "https://video.udn.com/rss/video_rss.xml";
-		new GFdynamicFeedControl(feed, "feedControl");
-
-	}
-	google.load("feeds", "1");
-	google.setOnLoadCallback(load);
-</script>
+	<!-載入 bootstrap CDN --->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-整個網站的處理程序 --->
+	<script type="text/javascript" src="../Scripts/PageLoad.js"></script>
 	<script>
-	// 畫面上按鈕按下後的處理程序
-	function summit() {
-		// 判斷呼叫這個函數的按鈕,決定開啟頁面
-		if (event.target.id == 'Page0201') {
-			// 第一顆按鈕：影音回顧
-			window.open('http://www.entrepreneurship.net.tw/yef-media/video/2');
-		}
-		else if (event.target.id == 'Page0202') {
-			// 第二顆按鈕：家有佳音幸福分享
-			window.open('http://ldhro.e-land.gov.tw/News_Content.aspx?n=7423397860C7E7C9&sms=D66D01B7FB3F42D5&s=357E97CCF2E7C575');
-		}
-		else if (event.target.id == 'Page0203') {
-			// Mod家庭精選餐
-			window.open('https://eshop.cht.com.tw/Web/Personal/Product/Details?megaID=2498205F-B370-460A-9192-3CD5E2C5BBDD');
-		}
-		else if (event.target.id == 'Page0204') {
-			// Youtube
-			window.open('https://www.youtube.com/?gl=TW');
-		}
-		else if (event.target.id == 'Page0205') {
-			// 愛奇藝台灣
-			window.open('http://tw.iqiyi.com/');
-		}
-		else if (event.target.id == 'Page0206') {
-			// 國立中央大學 開放課程
-			window.open('https://sites.google.com/site/ncuocw/home');
-		}
-		else if (event.target.id == 'Page0207') {
-			// 沙發電影院
-			window.open('https://play.google.com/store/movies?hl=zh_TW%E3%80%8D');
-		}
-		else if (event.target.id == 'Page0208') {
-			// yahoo奇摩電影
-			window.open('https://tw.movies.yahoo.com/');
-		}
-		else if (event.target.id == 'Page0209') {
-			// 威秀影城線上訂票
-			window.open('https://www.vscinemas.com.tw/vsTicketing/ticketing/ticket.aspx');
-		}
-		else if (event.target.id == 'Page0210') {
-			// 開放課程
-			window.open('http://ocw.aca.ntu.edu.tw/ntu-ocw/');
-		}
-		else if (event.target.id == 'Page0211') {
-			// 電影預告
-			window.open('https://movie.yahoo-leisure.hk/trailer?url=trailer');
-		}
-		else if (event.target.id == 'Page0212') {
-			// 來去電影院
-			window.open('https://www.vscinemas.com.tw/');
-		}
+		// 畫面上按鈕按下後的處理程序
+		function summit() {
+			// 判斷呼叫這個函數的按鈕,決定開啟頁面
+			if (event.target.id == 'Page0201') {
+				// 第一顆按鈕：影音回顧
+				window.open('http://www.entrepreneurship.net.tw/yef-media/video/2');
+			}
+			else if (event.target.id == 'Page0202') {
+				// 第二顆按鈕：家有佳音幸福分享
+				window.open('http://ldhro.e-land.gov.tw/News_Content.aspx?n=7423397860C7E7C9&sms=D66D01B7FB3F42D5&s=357E97CCF2E7C575');
+			}
+			else if (event.target.id == 'Page0203') {
+				// Mod家庭精選餐
+				window.open('https://eshop.cht.com.tw/Web/Personal/Product/Details?megaID=2498205F-B370-460A-9192-3CD5E2C5BBDD');
+			}
+			else if (event.target.id == 'Page0204') {
+				// Youtube
+				window.open('https://www.youtube.com/?gl=TW');
+			}
+			else if (event.target.id == 'Page0205') {
+				// 愛奇藝台灣
+				window.open('http://tw.iqiyi.com/');
+			}
+			else if (event.target.id == 'Page0206') {
+				// 國立中央大學 開放課程
+				window.open('https://sites.google.com/site/ncuocw/home');
+			}
+			else if (event.target.id == 'Page0207') {
+				// 沙發電影院
+				window.open('https://play.google.com/store/movies?hl=zh_TW%E3%80%8D');
+			}
+			else if (event.target.id == 'Page0208') {
+				// yahoo奇摩電影
+				window.open('https://tw.movies.yahoo.com/');
+			}
+			else if (event.target.id == 'Page0209') {
+				// 威秀影城線上訂票
+				window.open('https://www.vscinemas.com.tw/vsTicketing/ticketing/ticket.aspx');
+			}
+			else if (event.target.id == 'Page0210') {
+				// 開放課程
+				window.open('http://ocw.aca.ntu.edu.tw/ntu-ocw/');
+			}
+			else if (event.target.id == 'Page0211') {
+				// 電影預告
+				window.open('https://movie.yahoo-leisure.hk/trailer?url=trailer');
+			}
+			else if (event.target.id == 'Page0212') {
+				// 來去電影院
+				window.open('https://www.vscinemas.com.tw/');
+			}
 
-	}
-</script>
+		}
+	</script>
 </head>
-
 <body onload="formLoad()">
-	<div id="container">
-		<div id='header'>
-			<img id='headImage' />
-		</div>
-		<div class="leftSideBar DefaultButtonStyle left-sidebar-submit-group">
-			<!-這是左側的 SideBar--->
-			<input type="image" id="Page0201" />
-			<input type="image" id="Page0204" />
-			<input type="image" id="Page0207" />
-			<input type="image" id="Page0210" />
-			<input type="image" id="Page0211" />
-			<input type="image" id="Page0212" />
-		</div>
-		<div id='content' class="DefaultButtonStyle sub-submit-group">
-			<!-這是內容區顯示的位置--->
-			<input type="image" id="Page0202" />
-			<input type="image" id="Page0203" />
-			<input type="image" id="Page0205" />
-			<input type="image" id="Page0206" />
-			<input type="image" id="Page0208" />
-			<!-顯示新聞--->
-			<div id='feedControl'>Loading...</div>
-		</div>
-		<!-顯示版權聲告--->
-		<div id='footer'>
-			<img id='copyRight' />
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 headImage">
+			<div class="box">
+				<div class="box-heading">
+					<img id='headImage' />
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="leftSideBar left-sidebar-submit-group">
+		<!-這是左側的 SideBar--->
+		<input type="image" id="Page0201" />
+		<input type="image" id="Page0204" />
+		<input type="image" id="Page0207" />
+		<input type="image" id="Page0210" />
+		<input type="image" id="Page0211" />
+		<input type="image" id="Page0212" />
+	</div>
+	<div class="row">
+		<div class="col-xs-8 panel-item">
+			<div id="submit-group" class="box">
+				<div class="box-heading">
+					<input type="image" id="Page0202" />
+					<input type="image" id="Page0203" />
+					<input type="image" id="Page0205" />
+					<input type="image" id="Page0206" />
+					<input type="image" id="Page0208" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+			<div class="box-heading">
+				<!-顯示新聞--->
+					<ul id='page02List' class='list-group'></ul>
+			</div>
+	</div>
+	<!-顯示版權聲告--->
+	<footer>
+		<div class="row">
+			<div id='footer' class="col-lg-12" >
+				<img id='copyRight' />
+			</div>
+		</div>
+	</footer>
+</div>
 </body>
 
 </html>
